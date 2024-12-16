@@ -8,8 +8,7 @@
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
             rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <style>
         :root {
             --primary-color: #5f7979a7;
@@ -70,7 +69,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 30px;
+            padding: 15px 20px;
             background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
             position: sticky;
             top: 0;
@@ -118,17 +117,17 @@
             background-color: var(--light-color);
             margin: 3px;
         }
-    
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
     .nav-links {
         display: none;
         flex-direction: column;
         background: var(--navbar-bg);
         position: absolute;
-        top: 100%;
+        top: 60px;
         right: 0;
         width: 100%;
         text-align: center;
+        padding: 10px 0;
     }
 
     .nav-links.active {
@@ -138,7 +137,7 @@
     .burger {
         display: flex;
     }
-}    
+}
 
         .header {
     display: flex;
@@ -186,7 +185,7 @@
 
 .header-content {
     z-index: 1;
-    text-align: center;
+    text-align: justify;
     max-width: 600px;
 }
 
@@ -204,7 +203,7 @@
 }
 
 .header-content .btn {
-    padding: 15px 30px;
+    padding: 12px 25px;
     background: linear-gradient(to bottom right, #00bcd4, #006064);
     font-weight: bold;
     color: var(--light-color);
@@ -236,7 +235,7 @@
 
 
         #services {
-            padding: 100px 20px;
+            padding: 80px 20px;
             background: var(--gray-2);
             text-align: center;
             position: relative;
@@ -268,8 +267,8 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
         }
 
         .service-item {
@@ -332,8 +331,8 @@
 /* Experience Grid */
 .experience-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
 }
 
 /* Individual Experience Item */
@@ -356,7 +355,7 @@
 
 /* Image with overlay effect */
 .experience-item img {
-    width: 70%;
+    width: 40%;
     height: 500;
     object-fit: cover;
     border-radius: 8px;
@@ -453,8 +452,8 @@
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
 }
 
 /* Individual Project Item */
@@ -750,48 +749,9 @@ footer p {
         font-size: 1.3em;
     }
 }
-/* Responsive Design */
-@media screen and (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background-color: #333;
-        width: 100%;
-        text-align: center;
-    }
 
-    .nav-links.active {
-        display: flex;
-    }
-
-    .burger {
-        display: block;
-    }
-
-    .header {
-        flex-direction: column;
-    }
-
-    .header-image img {
-        max-width: 300px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .header-content h2 {
-        font-size: 1.8rem;
-    }
-
-    .btn {
-        font-size: 0.9rem;
-        padding: 0.7rem 1.2rem;
-    }
-}
     </style>
-
+    
     </head>
     <body>
         <!-- Navbar Section -->
@@ -809,77 +769,66 @@ footer p {
             </ul>
         </div>
 
-        <!-- Header Section -->
-        <section id="home" class="header">
-            <div class="header-content">
-                <h1>Hi, I'm Nour Hesham</h1>
-                <h2>Data Scientist</h2>
-                <p>Transforming data into actionable insights with expertise in
-                    machine learning, data visualization, and statistical
-                    analysis. Explore my work and connect with me!</p>
-                <div class="header-buttons">
-                    <a href="files\Nour_Hesham_DS_CV 2025.pdf" class="btn">View
-                        Resume</a>
-                    <a href="#projects" class="btn secondary">Explore
-                        Projects</a>
-                </div>
-            </div>
-            <div class="header-image">
-                <img
-                    src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg"
-                    alt="Profile Image">
-            </div>
-        </section>
+<!-- Header Section -->
+<section id="home" class="header">
+    <div class="header-content">
+        <h1>Hi, I'm Nour Hesham</h1>
+        <h2>Data Scientist</h2>
+        <p>Transforming data into actionable insights with expertise in machine learning, data visualization, and statistical analysis. Explore my work and connect with me!</p>
+        <div class="header-buttons">
+            <a href="files\Nour_Hesham_DS_CV 2025.pdf" class="btn">View Resume</a>
+            <a href="#projects" class="btn secondary">Explore Projects</a>
+        </div>
+    </div>
+    <div class="header-image">
+        <img src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg" alt="Profile Image">
+    </div>
+</section>
 
-        <!-- Services Section -->
-        <section id="services">
-            <h2>What I Do</h2>
-            <div class="services-grid">
-                <!-- Data Visualization -->
-                <div class="service-item">
-                    <i class="fas fa-chart-bar fa-3x"></i>
-                    <h3>Data Visualization</h3>
-                    <p>Creating dynamic and insightful visualizations using
-                        tools like Power BI, and Matplotlib.</p>
-                </div>
-                <!-- Machine Learning -->
-                <div class="service-item">
-                    <i class="fas fa-robot fa-3x"></i>
-                    <h3>Machine Learning</h3>
-                    <p>Building AI models to solve real-world problems
-                        efficiently.</p>
-                </div>
-                <!-- Data Analysis -->
-                <div class="service-item">
-                    <i class="fas fa-database fa-3x"></i>
-                    <h3>Data Analysis</h3>
-                    <p>Extracting insights from data using Python, and various
-                        tools.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="experience-grid">
-                <div class="experience-item">
-                    <img src="imgs\sales_analysis.png"
-                        alt="Power Bi Business Analysis Dashboard">
-                    <h3>Data Analyst</h3>
-                    <p>Freelance | Nov 2024 - Present</p>
-                    <ul>
-                        <li>Designed and implemented automated dashboards in
-                            Power BI, reducing manual reporting efforts by
-                            40%.</li>
-                        <li>Conducted in-depth analysis of sales trends, helping
-                            businesses improve profitability by 15%.</li>
-                        <li>Collaborated with stakeholders to identify KPIs and
-                            improve decision-making processes.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<!-- Services Section -->
+<section id="services">
+    <h2>What I Do</h2>
+    <div class="services-grid">
+        <!-- Data Visualization -->
+        <div class="service-item">
+            <i class="fas fa-chart-bar fa-3x"></i>
+            <h3>Data Visualization</h3>
+            <p>Creating dynamic and insightful visualizations using tools like Power BI, and Matplotlib.</p>
+        </div>
+        <!-- Machine Learning -->
+        <div class="service-item">
+            <i class="fas fa-robot fa-3x"></i>
+            <h3>Machine Learning</h3>
+            <p>Building AI models to solve real-world problems efficiently.</p>
+        </div>
+        <!-- Data Analysis -->
+        <div class="service-item">
+            <i class="fas fa-database fa-3x"></i>
+            <h3>Data Analysis</h3>
+            <p>Extracting insights from data using Python, and various tools.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-grid">
+        <div class="experience-item">
+            <img src="imgs\sales_analysis.png"
+            alt="Power Bi Business Analysis Dashboard">
+            <h3>Data Analyst</h3>
+            <p>Freelance | Nov 2024 - Present</p>
+            <ul>
+                <li>Designed and implemented automated dashboards in Power BI, reducing manual reporting efforts by 40%.</li>
+                <li>Conducted in-depth analysis of sales trends, helping businesses improve profitability by 15%.</li>
+                <li>Collaborated with stakeholders to identify KPIs and improve decision-making processes.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 
         <div id="projects">
             <h2>My Projects</h2>
@@ -919,67 +868,46 @@ footer p {
             </div>
         </div>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>About Me</h2>
-            <p>Hello! I'm a Junior Data Scientist with a strong foundation in
-                data analysis, machine learning, and web development. I am
-                passionate about transforming raw data into meaningful insights
-                and building machine learning models that solve real-world
-                problems.</p>
-            <p>I specialize in creating data-driven solutions, leveraging tools
-                like Python, TensorFlow, and Power BI to analyze complex
-                datasets and deliver actionable insights. My goal is to continue
-                growing as a data scientist by gaining experience in a variety
-                of industries and enhancing my skills in advanced machine
-                learning techniques.</p>
-            <p>In addition to my technical skills, I am also highly interested
-                in web development and enjoy building dynamic, user-friendly
-                applications. I strive to combine both fields to create
-                intelligent systems that not only provide insights but also
-                improve the user experience.</p>
-            <p>As a Junior Data Scientist, I'm eager to contribute to impactful
-                projects, collaborate with teams, and further develop my skills
-                in machine learning and data science.</p>
-        </section>
+<!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm a Junior Data Scientist with a strong foundation in data analysis, machine learning, and web development. I am passionate about transforming raw data into meaningful insights and building machine learning models that solve real-world problems.</p>
+    <p>I specialize in creating data-driven solutions, leveraging tools like Python, TensorFlow, and Power BI to analyze complex datasets and deliver actionable insights. My goal is to continue growing as a data scientist by gaining experience in a variety of industries and enhancing my skills in advanced machine learning techniques.</p>
+    <p>In addition to my technical skills, I am also highly interested in web development and enjoy building dynamic, user-friendly applications. I strive to combine both fields to create intelligent systems that not only provide insights but also improve the user experience.</p>
+    <p>As a Junior Data Scientist, I'm eager to contribute to impactful projects, collaborate with teams, and further develop my skills in machine learning and data science.</p>
+</section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <p>If you have any questions or want to collaborate, feel free to
-                reach out!</p>
-            <form>
-                <div class="input-field">
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="input-field">
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="input-field">
-                    <textarea placeholder="Your Message" required></textarea>
-                </div>
-                <button class="submit-btn" type="submit">Send Message</button>
-            </form>
-        </section>
 
-        <!-- Footer Section -->
-        <footer>
-            <div class="footer-content">
-                <p>&copy; 2024 My Portfolio. All rights reserved.</p>
-                <div class="social-media">
-                    <a
-                        href="https://www.linkedin.com/in/nour-eldin-hesham-557770238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
-                        target="_blank" class="social-icon"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/NOUR12321" target="_blank"
-                        class="social-icon"><i class="fab fa-github"></i></a>
-                    <a
-                        href="https://www.facebook.com/profile.php?id=100089069449778&mibextid=ZbWKwL"
-                        target="_blank" class="social-icon"><i
-                            class="fab fa-facebook"></i></a>
-                </div>
-            </div>
-        </footer>
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or want to collaborate, feel free to reach out!</p>
+    <form>
+        <div class="input-field">
+            <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="input-field">
+            <input type="email" placeholder="Your Email" required>
+        </div>
+        <div class="input-field">
+            <textarea placeholder="Your Message" required></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/nour-eldin-hesham-557770238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NOUR12321" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100089069449778&mibextid=ZbWKwL" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+</footer>
+
 
     </body>
 </html>
