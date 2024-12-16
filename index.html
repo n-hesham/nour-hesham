@@ -273,6 +273,127 @@
         .service-item p {
             font-size: 1.2em;
         }
+/* Experience Section */
+#experience {
+    padding: 100px 20px;
+    background: var(--gray-2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+/* Experience Header */
+#experience h2 {
+    font-size: 3em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    animation: slideIn 1s ease-out;
+    margin-bottom: 40px;
+    position: relative;
+    color: var(--gray-1);
+}
+
+#experience h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    display: block;
+    margin: 10px auto;
+}
+
+/* Experience Grid */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Individual Experience Item */
+.experience-item {
+    background: var(--gray-2);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(21, 16, 175, 0.2);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    color: #f7f6f6;
+}
+
+.experience-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image with overlay effect */
+.experience-item img {
+    width: 70%;
+    height: 500;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.project-experience img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Heading and Description */
+.experience-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease-in-out;
+}
+
+.experience-item:hover h3 {
+    color: var(--primary-color);
+}
+/* Overlay Text on Image Hover */
+.experience-item img:hover + .project-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.experience-item p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Experience List */
+.experience-item ul {
+    font-size: 1.1em;
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #00bcd4;
+}
+
+.experience-item ul li {
+    margin-bottom: 10px;
+}
+/* Adding animations for content */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
 
 /* Projects Section */
 #projects {
@@ -620,6 +741,7 @@ footer p {
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -664,23 +786,28 @@ footer p {
                 </div>
             </div>
         </section>
+<!-- Experience Section -->
+<section id="experience">
+    <h2>Experience</h2>
+    <div class="experience-grid">
+        <div class="experience-item">
+            <img src="imgs\sales_analysis.png"
+            alt="Power Bi Business Analysis Dashboard">
+            <h3>Data Analyst</h3>
+            <p>Freelance | Nov 2024 - Present</p>
+            <ul>
+                <li>Designed and implemented automated dashboards in Power BI, reducing manual reporting efforts by 40%.</li>
+                <li>Conducted in-depth analysis of sales trends, helping businesses improve profitability by 15%.</li>
+                <li>Collaborated with stakeholders to identify KPIs and improve decision-making processes.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
 
         <div id="projects">
             <h2>My Projects</h2>
             <div class="project-grid">
-                <div class="project-item">
-                    <img src="imgs\sales_analysis.png"
-                        alt="Power Bi Business Analysis Dashboard">
-                    <h3>MEDICAL SCAN ANALYSIS (CNN FOR CHEST X-RAY
-                        CLASSIFICATION)</h3>
-                    <p>Assiut University | Sep 2024</p>
-                    <ul>
-                        <li>Developed and implemented an advanced Power BI dashboard to provide real-time insights into sales, 
-                            performance, and profitability, reducing reporting time by 40%.</li>
-                        <li>Optimized database structure for more efficient data flow. </li>
-                        <li>Used DAX to create custom KPIs, improving decision-making by 20%.</li>
-                    </ul>
-                </div>
                 <div class="project-item">
                     <img src="imgs\OIP.jpg"
                         alt="Chest X-ray Classification">
