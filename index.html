@@ -728,7 +728,49 @@ footer p {
         font-size: 1.3em;
     }
 }
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #333;
+        width: 100%;
+    }
 
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header-image img {
+        width: 250px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .header-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .btn {
+        padding: 8px 15px;
+    }
+}
     </style>
     
     </head>
