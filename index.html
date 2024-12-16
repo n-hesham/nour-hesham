@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Portfolio</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <style>
+        :root {
+            --primary-color: #5f7979a7;
+            --accent-color: #faef22;
+            --secondary-color: #13b4eaae;
+            --highlight-color: #1b1b1e97;
+            --background-color: #241b1b;
+            --dark-background-color: #2b2d2f;
+            --gray-1: #f0ebeb;
+            --gray-2: #202121;
+            --gray-3: #f4fafb;
+            --gray-4: #2c3e50;
+            --button-bg: #ff6f61;
+            --button-text: #ffffff;
+            --button-hover-bg: #e64a3c;
+            --link-color: #ff9800;
+            --link-hover-color: #e65100;
+            --success-color: #4caf50;
+            --error-color: #e74c3c;
+            --warning-color: #f39c12;
+            --info-color: #2196f3;
+            --input-bg: #ffffff;
+            --input-border: #bdc3c7;
+            --input-focus-bg: #e1f5fe;
+            --input-focus-border: #00bcd4;
+            --navbar-bg: #2c3e50;
+            --navbar-text: #ffffff;
+            --navbar-hover-bg: #34495e;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-dark: rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-1);
+            background: var(--background-color);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease-in-out;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            color: #21bff9;
+            box-shadow: 0 4px 6px rgba(221, 172, 8, 0.15);
+        }
+
+        .navbar .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar .logo span {
+            color: #222222;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            font-size: 1em;
+            font-weight: 500;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.1);
+            color: var(--accent-color);
+        }
+
+        .burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .burger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--light-color);
+            margin: 3px;
+        }
+
+        .header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 50px;
+    background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
+    color: var(--light-color);
+    min-height: 90vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Floating Circles */
+.header::before, .header::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+.header::before {
+    top: -50px;
+    left: -100px;
+    animation: float 6s infinite alternate;
+}
+.header::after {
+    bottom: -50px;
+    right: -100px;
+    animation: float 8s infinite alternate-reverse;
+}
+
+/* Floating Animation */
+@keyframes float {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20px);
+    }
+}
+
+.header-content {
+    z-index: 1;
+    text-align: center;
+    max-width: 600px;
+}
+
+.header-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.header-content p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: var(--light-color);
+}
+
+.header-content .btn {
+    padding: 15px 30px;
+    background: linear-gradient(to bottom right, #00bcd4, #006064);
+    font-weight: bold;
+    color: var(--light-color);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+}
+.header-content .btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling */
+.header-image {
+    z-index: 1;
+    margin-top: 20px;
+}
+.header-image img {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 5px solid var(--accent-color);
+}
+
+
+        #services {
+            padding: 100px 20px;
+            background: var(--gray-2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-color);
+            border-bottom: 5px solid var(--primary-color);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        #services h2 {
+            color: var(--gray-1);
+            font-size: 2.8em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+            animation: slideIn 1s ease-out;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        #services h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent-color);
+            display: block;
+            margin: 10px auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-item {
+            background: var(--gray-2);
+            color: #00bcd4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(21, 16, 175, 0.2);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .service-item h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: var(--accent-color);
+        }
+
+        .service-item p {
+            font-size: 1.2em;
+        }
+
+/* Projects Section */
+#projects {
+    padding: 100px 20px;
+    background: var(--gray-2);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    color: #fff;
+}
+
+/* Projects Header */
+#projects h2 {
+    font-size: 3em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 700;
+    animation: slideIn 1s ease-out;
+    margin-bottom: 40px;
+    position: relative;
+    color: var(--gray-1);
+}
+
+#projects h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    display: block;
+    margin: 10px auto;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Individual Project Item */
+.project-item {
+    background: var(--gray-2);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 15px 30px rgba(21, 16, 175, 0.2);
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    position: relative;
+    color: #f7f6f6;
+}
+
+.project-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Image with overlay effect */
+.project-item img {
+    width: 48%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.project-item img:hover {
+    transform: scale(1.1);
+    filter: brightness(70%);
+}
+
+/* Overlay Text on Image Hover */
+.project-item img:hover + .project-text {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hidden overlay text */
+.project-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+}
+
+/* Heading and Description */
+.project-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    transition: color 0.3s ease-in-out;
+}
+
+.project-item:hover h3 {
+    color: var(--primary-color);
+}
+
+.project-item p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.project-item ul {
+    font-size: 1.1em;
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #00bcd4;
+}
+
+.project-item ul li {
+    margin-bottom: 10px;
+}
+
+/* Adding animations for content */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+ /* About Section Styling */
+#about {
+    background: var(--gray-2);
+    padding: 50px 20px;
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2.8em;
+    color: var(--gray-1);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-out;
+}
+
+#about p {
+    font-size: 1.2em;
+    color: #00bcd4;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#about p:first-of-type {
+    font-weight: bold;
+}
+
+#about p:last-of-type {
+    font-style: italic;
+}
+
+/* Animation for sliding in the heading */
+@keyframes slideIn {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Contact Section Styling */
+#contact {
+    background: var(--gray-2);
+    padding: 50px 20px;
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#contact h2 {
+    font-size: 2.8em;
+    color: var(--gray-1);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 30px;
+    animation: slideIn 1s ease-out;
+}
+
+#contact p {
+    font-size: 1.2em;
+    color: #00bcd4;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.input-field {
+    margin-bottom: 20px;
+}
+
+.input-field input,
+.input-field textarea {
+    width: 40%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1.1em;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-field input:focus,
+.input-field textarea:focus {
+    border-color: var(--primary-color);
+}
+
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+.submit-btn {
+    padding: 12px 20px;
+    background-color: var(--primary-color);
+    color: #fff;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Footer Section Styling */
+footer {
+    background-color: #222;
+    color: #fff;
+    padding: 6px 0px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    opacity: 0.7;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+
+.social-media {
+    margin-top: 20px;
+}
+
+.social-media .social-icon {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-media .social-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* Responsive Footer */
+@media screen and (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .social-media {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .social-media .social-icon {
+        font-size: 1.3em;
+    }
+}
+
+    </style>
+    
+    </head>
+    <body>
+        <!-- Navbar Section -->
+        <div class="navbar">
+            <div class="logo">
+                <span>My</span>Portfolio
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+
+<!-- Header Section -->
+<section id="home" class="header">
+    <div class="header-content">
+        <h1>Hi, I'm Nour Hesham</h1>
+        <h2>Data Scientist</h2>
+        <p>Transforming data into actionable insights with expertise in machine learning, data visualization, and statistical analysis. Explore my work and connect with me!</p>
+        <div class="header-buttons">
+            <a href="files\Nour_Hesham_DS_CV 2025.pdf" class="btn">View Resume</a>
+            <a href="#projects" class="btn secondary">Explore Projects</a>
+        </div>
+    </div>
+    <div class="header-image">
+        <img src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg" alt="Profile Image">
+    </div>
+</section>
+
+
+        <!-- Services Section -->
+        <section id="services">
+            <h2>What I Do</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <h3>Web Development</h3>
+                    <p>Creating responsive and dynamic websites using modern
+                        technologies.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Machine Learning</h3>
+                    <p>Building AI models to solve real-world problems
+                        efficiently.</p>
+                </div>
+                <div class="service-item">
+                    <h3>Data Analysis</h3>
+                    <p>Extracting insights from data using Python, R, and
+                        various tools.</p>
+                </div>
+            </div>
+        </section>
+
+        <div id="projects">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="imgs\OIP.jpg"
+                        alt="Chest X-ray Classification">
+                    <h3>MEDICAL SCAN ANALYSIS (CNN FOR CHEST X-RAY
+                        CLASSIFICATION)</h3>
+                    <p>Assiut University | Sep 2024</p>
+                    <ul>
+                        <li>Developed a CNN model to classify chest X-rays into
+                            Pneumonia, COVID-19, and Healthy categories,
+                            achieving 95% accuracy.</li>
+                        <li>Automated diagnostics, enhancing efficiency by 30%
+                            and minimizing errors.</li>
+                        <li>Optimized model performance through fine-tuning
+                            hyperparameters.</li>
+                    </ul>
+                </div>
+                <div class="project-item">
+                    <img src="imgs\heart model.png"
+                        alt="Heart Disease Prediction System">
+                    <h3>HEART DISEASE PREDICTION SYSTEM</h3>
+                    <p>Assiut University | Mar 2024</p>
+                    <ul>
+                        <li>Developed a Flask web app to predict heart disease
+                            risk using health metrics like age, cholesterol, and
+                            blood pressure.</li>
+                        <li>Enhanced accuracy to 87% by integrating Logistic
+                            Regression, Random Forest, and XGBoost in an
+                            ensemble model.</li>
+                        <li>Created a user-friendly interface for real-time
+                            predictions and health assessments.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+<!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm a Junior Data Scientist with a strong foundation in data analysis, machine learning, and web development. I am passionate about transforming raw data into meaningful insights and building machine learning models that solve real-world problems.</p>
+    <p>I specialize in creating data-driven solutions, leveraging tools like Python, TensorFlow, and Power BI to analyze complex datasets and deliver actionable insights. My goal is to continue growing as a data scientist by gaining experience in a variety of industries and enhancing my skills in advanced machine learning techniques.</p>
+    <p>In addition to my technical skills, I am also highly interested in web development and enjoy building dynamic, user-friendly applications. I strive to combine both fields to create intelligent systems that not only provide insights but also improve the user experience.</p>
+    <p>As a Junior Data Scientist, I'm eager to contribute to impactful projects, collaborate with teams, and further develop my skills in machine learning and data science.</p>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or want to collaborate, feel free to reach out!</p>
+    <form>
+        <div class="input-field">
+            <input type="text" placeholder="Your Name" required>
+        </div>
+        <div class="input-field">
+            <input type="email" placeholder="Your Email" required>
+        </div>
+        <div class="input-field">
+            <textarea placeholder="Your Message" required></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Send Message</button>
+    </form>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        <div class="social-media">
+            <a href="https://www.linkedin.com/in/nour-eldin-hesham-557770238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/NOUR12321" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100089069449778&mibextid=ZbWKwL" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+        </div>
+    </div>
+</footer>
+
+
+    </body>
+</html>
