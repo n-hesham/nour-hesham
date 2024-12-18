@@ -721,12 +721,38 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.4;
+    color: var(--gray-1);
+    background: var(--background-color);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    width: 15%;
+    font-size: x-small;
+    color: inherit;
+    transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
     .navbar {
     display: block;
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px;
-    background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
+    background: linear-gradient(80deg, var(--primary-color), var(--dark-background-color));
     position: fixed;
     top: 0;
     z-index: 1000;
@@ -836,7 +862,7 @@ footer p {
 .header-content p {
     font-size: 0.8em;
     line-height: 1.5;
-    margin-bottom: 15px;
+    margin-bottom: 1px;
     color: var(--light-color);
 }
 
@@ -847,12 +873,17 @@ footer p {
     color: var(--light-color);
     border: none;
     border-radius: 25px;
-    cursor: pointer;
+    cursor: all-scroll;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-block;
     margin: 10px;
 }
+
+.div.header{
+font-size: 1px;
+}
+
 
 .header-content .btn:hover {
     transform: translateY(-5px) scale(1.05);
