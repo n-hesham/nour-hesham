@@ -71,7 +71,7 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
+    padding: 13px 20px;
     background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
     position: sticky;
     top: 0;
@@ -81,7 +81,7 @@ a:hover {
 }
 
 .navbar .logo {
-    font-size: 1.8em;
+    font-size: 1.7em;
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -123,13 +123,13 @@ a:hover {
 /* Header Section */
 .header {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    padding: 50px 20px;
+    padding: 65px 20px;
     background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
     color: var(--light-color);
-    min-height: 90vh;
+    min-height: 90vh; /* تعديل الارتفاع ليكون مناسبًا */
     position: relative;
     overflow: hidden;
 }
@@ -138,22 +138,21 @@ a:hover {
 .header::before, .header::after {
     content: '';
     position: absolute;
-    width: 250px;
-    height: 250px;
-    background: rgba(255, 255, 255, 0.1);
+    width: 10000px;
+    height: 500px;
+    background: rgba(67, 141, 237, 0.707);
     border-radius: 50%;
     z-index: 0;
 }
 
 .header::before {
-    top: -50px;
-    left: -100px;
+    top: -10px;
+    left: -200px;
     animation: float 6s infinite alternate;
 }
-
 .header::after {
-    bottom: -50px;
-    right: -100px;
+    bottom: -200px;
+    right: -200px;
     animation: float 8s infinite alternate-reverse;
 }
 
@@ -169,65 +168,84 @@ a:hover {
 /* Header Content */
 .header-content {
     z-index: 1;
-    text-align: justify;
+    text-align: center;
     max-width: 600px;
 }
 
 .header-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2.4em;
+    margin-bottom: 16px;
     color: var(--accent-color);
 }
 
 .header-content p {
+    text-align: center;
     font-size: 1.2em;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    font-family: 'Courier New', Courier, monospace;
     color: var(--light-color);
 }
 
-.header-content .btn {
-    padding: 12px 25px;
-    background: linear-gradient(to bottom right, #00bcd4, #006064);
+.header-buttons .btn {
+    padding: 14px 20px;
+    background: linear-gradient(to bottom right, #0f1313, #068fd9);
     font-weight: bold;
     color: var(--light-color);
     border: none;
     border-radius: 30px;
+    position: relative;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s ease;
     text-decoration: none;
     display: inline-block;
     margin: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
-.header-content .btn:hover {
-    transform: translateY(-5px) scale(1.05);
+
+.header-buttons .btn:hover {
+    transform: scale(1.09);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* Image Styling */
-.header-image {
-    z-index: 1;
-    margin-top: 20px;
+/* زر ثانوي */
+.header-buttons .btn.secondary {
+    background: linear-gradient(to bottom right, #0f1313, #06d2d9);
 }
 
+.header-buttons .btn.secondary:hover {
+    transform: scale(1.09);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Image Styling (Header Image First) */
+.header-image {
+    z-index: 1;
+    margin-bottom: 30px; /* إضافة مسافة أسفل الصورة */
+}
 .header-image img {
     width: 100%;
-    max-width: 400px;
+    padding: 8px; /* ضبط المسافات الداخلية */
+    max-width: 340px; /* تقليل الحجم الأقصى */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    border: 5px solid var(--accent-color);
+    border: 2.5px solid var(--accent-color);
 }
 
         #services {
-            padding: 80px 20px;
+            padding: 180px 20px;
             background: var(--gray-2);
             text-align: center;
             position: relative;
+            min-height: 60vh; /* تعديل الارتفاع ليكون مناسبًا */
             overflow: hidden;
             border-top: 5px solid var(--primary-color);
-            border-bottom: 5px solid var(--primary-color);
+            border-bottom: 1px solid var(--primary-color);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
@@ -287,8 +305,8 @@ a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-top: 5px solid var(--primary-color);
-    border-bottom: 5px solid var(--primary-color);
+    border-top: 3px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     color: #fff;
 }
@@ -341,7 +359,7 @@ a:hover {
 
 /* Image with overlay effect */
 .experience-item img {
-    width: 500px;
+    width: 400px;
     height: 20;
     object-fit: cover;
     border-radius: 8px;
@@ -355,7 +373,7 @@ a:hover {
 
 /* Heading and Description */
 .experience-item h3 {
-    font-size: 1.8em;
+    font-size: 1.2em;
     margin-bottom: 20px;
     color: var(--accent-color);
     font-weight: 600;
@@ -373,8 +391,8 @@ a:hover {
 }
 
 .experience-item p {
-    font-size: 1.1em;
-    margin-bottom: 15px;
+    font-size: 1em;
+    margin-bottom: 12px;
     line-height: 1.6;
     color: #555;
 }
@@ -409,8 +427,8 @@ a:hover {
     text-align: center;
     position: relative;
     overflow: hidden;
-    border-top: 5px solid var(--primary-color);
-    border-bottom: 5px solid var(--primary-color);
+    border-top: 3px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     color: #fff;
 }
@@ -463,7 +481,7 @@ a:hover {
 /* Image with overlay effect */
 .project-item img {
     width:fit-content;
-    height: 250px;
+    height: 240px;
     object-fit: cover;
     border-radius: 8px;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
@@ -487,7 +505,7 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     color: #fff;
-    font-size: 1.2em;
+    font-size: 1.1em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     text-align: center;
@@ -498,7 +516,7 @@ a:hover {
 
 /* Heading and Description */
 .project-item h3 {
-    font-size: 1.8em;
+    font-size: 1.4em;
     margin-bottom: 20px;
     color: var(--accent-color);
     font-weight: 600;
@@ -511,14 +529,14 @@ a:hover {
 }
 
 .project-item p {
-    font-size: 1.1em;
-    margin-bottom: 15px;
+    font-size: 1em;
+    margin-bottom: 12px;
     line-height: 1.6;
     color: #555;
 }
 
 .project-item ul {
-    font-size: 1.1em;
+    font-size: 1em;
     list-style-type: disc;
     padding-left: 20px;
     color: #00bcd4;
@@ -544,10 +562,11 @@ a:hover {
  /* About Section Styling */
 #about {
     background: var(--gray-2);
-    padding: 80px 20px;
-    border-top: 5px solid var(--primary-color);
-    border-bottom: 5px solid var(--primary-color);
+    padding: 200px 20px;
+    border-top: 3px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    min-height: 50vh; /* تعديل الارتفاع ليكون مناسبًا */
     text-align: center;
 }
 
@@ -596,8 +615,8 @@ a:hover {
 #contact {
     background: var(--gray-2);
     padding: 80px 20px;
-    border-top: 5px solid var(--primary-color);
-    border-bottom: 5px solid var(--primary-color);
+    border-top: 3px solid var(--primary-color);
+    border-bottom: 3px solid var(--primary-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
@@ -628,7 +647,7 @@ a:hover {
 
 .input-field input,
 .input-field textarea {
-    width: 40%;
+    width: 30%;
     padding: 15px;
     border: 2px solid #ddd;
     border-radius: 5px;
@@ -643,7 +662,7 @@ a:hover {
 }
 
 textarea {
-    height: 150px;
+    height: 100px;
     resize: vertical;
 }
 
@@ -1436,6 +1455,9 @@ footer p {
 <!-- Header Section -->
 <section id="home" class="header">
     <div class="header-content">
+        <div class="header-image">
+            <img src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg" alt="Profile Image">
+        </div>
         <h1>Hi, I'm Nour Hesham</h1>
         <h2>Data Scientist</h2>
         <p>Transforming data into actionable insights with expertise in machine learning, data visualization, and statistical analysis. Explore my work and connect with me!</p>
@@ -1444,9 +1466,7 @@ footer p {
             <a href="#projects" class="btn secondary">Explore Projects</a>
         </div>
     </div>
-    <div class="header-image">
-        <img src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg" alt="Profile Image">
-    </div>
+
 </section>
 
 
@@ -1536,9 +1556,8 @@ footer p {
 <section id="about">
     <h2>About Me</h2>
     <p>Hello! I'm a Junior Data Scientist with a strong foundation in data analysis, machine learning, and web development. I am passionate about transforming raw data into meaningful insights and building machine learning models that solve real-world problems.</p>
-    <p>I specialize in creating data-driven solutions, leveraging tools like Python, TensorFlow, and Power BI to analyze complex datasets and deliver actionable insights. My goal is to continue growing as a data scientist by gaining experience in a variety of industries and enhancing my skills in advanced machine learning techniques.</p>
-    <p>In addition to my technical skills, I am also highly interested in web development and enjoy building dynamic, user-friendly applications. I strive to combine both fields to create intelligent systems that not only provide insights but also improve the user experience.</p>
-    <p>As a Junior Data Scientist, I'm eager to contribute to impactful projects, collaborate with teams, and further develop my skills in machine learning and data science.</p>
+    <p>I leverage tools like Python, TensorFlow, and Power BI to analyze complex datasets and deliver actionable insights. My goal is to contribute to impactful projects and enhance my skills in data science and advanced machine learning techniques.</p>
+    
 </section>
 
 
