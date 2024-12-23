@@ -750,15 +750,17 @@ footer p {
 
 body {
     font-family: 'Poppins', sans-serif;
-    line-height: 1.4;
+    line-height: 1.5;
     color: var(--gray-1);
     background: var(--background-color);
     overflow-x: hidden;
 }
 
 a {
+    padding: 0px 3px;
     text-decoration: none;
     width: 15%;
+    box-shadow: 0 3px 4px rgba(252, 215, 238, 0.15);
     font-size: x-small;
     color: inherit;
     transition: color 0.3s ease-in-out;
@@ -772,16 +774,17 @@ a:hover {
     justify-content: space-between;
     align-items: center;
     padding: 12px 10px;
-    background: linear-gradient(80deg, var(--primary-color), var(--dark-background-color));
+    background: linear-gradient(8deg, var(--primary-color), var(--dark-background-color));
     position: fixed;
     top: 0;
     z-index: 1000;
     color: #e61af9;
-    box-shadow: 0 4px 6px rgba(221, 8, 132, 0.15);
+    box-shadow: 0 3px 4px rgba(221, 8, 132, 0.15);
 }
 
 .navbar .logo {
     font-size: 1.55em;
+    background: linear-gradient(1deg, var(--primary-color), var(--dark-background-color));
     font-weight: bold;
     text-transform: uppercase;
 }
@@ -826,7 +829,7 @@ a:hover {
     flex-wrap: wrap-reverse;
     align-items: center;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 43px 20px;
     background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
     color: var(--light-color);
     min-height: 60vh;
