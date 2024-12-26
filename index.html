@@ -10,36 +10,38 @@
             rel="stylesheet">
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
             <style>
-                :root {
-                    --primary-color: #070808ea;
-                    --accent-color: #f70bc4;
-                    --secondary-color: #13b4eaae;
-                    --highlight-color: #1f1e1fcd;
-                    --background-color: #0a090a;
-                    --dark-background-color: #2f2b2e11;
-                    --gray-1: #f9f9fa;
-                    --gray-2: #20212141;
-                    --gray-3: #f4fafb;
-                    --gray-4: #2c3e50;
-                    --button-bg: #ff6f61;
-                    --button-text: #ffffff;
-                    --button-hover-bg: #e64a3c;
-                    --link-color: #ff9800;
-                    --link-hover-color: #e65100;
-                    --success-color: #4caf50;
-                    --error-color: #e74c3c;
-                    --warning-color: #f39c12;
-                    --info-color: #cd21f3;
-                    --input-bg: #ffffff;
-                    --input-border: #bdc3c7;
-                    --input-focus-bg: #e1f5fe;
-                    --input-focus-border: #00bcd4;
-                    --navbar-bg: #2c3e50;
-                    --navbar-text: #ffffff;
-                    --navbar-hover-bg: #34495e;
-                    --shadow-light: rgba(0, 0, 0, 0.1);
-                    --shadow-dark: rgba(0, 0, 0, 0.2);
-                }
+:root {
+    --primary-color: #070808; /* Deep black for primary elements */
+    --accent-color: #FFD700; /* Golden color for accents */
+    --secondary-color: #13b4ea; /* Vibrant blue for secondary elements */
+    --highlight-color: #171717b0; /* Warm orange highlight */
+    --background-color: #100e10; /* Dark background */
+    --dark-background-color: rgba(20, 19, 19, 0.222); /* Slightly lighter dark background */
+    --cont-color: #f9ac1dc5;
+    --gray-1: #f8f9fa; /* Light gray for backgrounds or borders */
+    --gray-2: #161717ba; /* Dark gray for subtle text */
+    --gray-3: #e5e7eb; /* Soft light gray for cards or inputs */
+    --gray-4: #2c3e50; /* Rich gray for navbar and headers */
+    --button-bg: #FFD700; /* Golden buttons for emphasis */
+    --button-text: #070808; /* Dark text on buttons */
+    --button-hover-bg: #e5ac00; /* Darker golden for hover effect */
+    --link-color: #13b4ea; /* Bright blue for links */
+    --link-hover-color: #0e7ba5; /* Darker blue for hover state */
+    --success-color: #4caf50; /* Standard green for success */
+    --error-color: #e74c3c; /* Vibrant red for errors */
+    --warning-color: #f39c12; /* Bright orange for warnings */
+    --info-color: #17a2b8; /* Cool blue for informational elements */
+    --input-bg: #ffffff; /* White input backgrounds */
+    --input-border: #bdc3c7; /* Subtle gray border for inputs */
+    --input-focus-bg: #e1f5fe; /* Light blue focus background */
+    --input-focus-border: #00bcd4; /* Bright cyan for focus border */
+    --navbar-bg: #2c3e50; /* Rich gray for navbar */
+    --navbar-text: #ffffff; /* White text for navbar */
+    --navbar-hover-bg: #34495e; /* Slightly lighter gray for navbar hover */
+    --shadow-light: rgba(0, 0, 0, 0.05); /* Softer shadow for light elements */
+    --shadow-dark: rgba(0, 0, 0, 0.15); /* Moderate shadow for dark elements */
+}
+
 
 /* General Styles */
 * {
@@ -59,7 +61,6 @@ body {
 a {
     text-decoration: none;
     color: inherit;
-    box-shadow: 0 3px 4px rgba(252, 215, 238, 0.15);
     transition: color 0.3s ease-in-out;
 }
 
@@ -72,24 +73,24 @@ a:hover {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 13px 20px;
+    padding: 21px 20px;
     background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
     position: sticky;
     top: 0;
     z-index: 1000;
-    color: #e31bf6;
-    box-shadow: 0 4px 6px rgba(221, 8, 143, 0.15);
+    color: var(--cont-color);
+    box-shadow: 0 4px 6px rgba(245, 183, 13, 0.19);
 }
 
 .navbar .logo {
     background: linear-gradient(120deg, var(--primary-color), var(--dark-background-color));
-    font-size: 1.4em;
+    font-size: 1.6em;
     font-weight: bold;
     text-transform: uppercase;
 }
 
 .navbar .logo span {
-    color: #c103f6;
+    color: var(--accent-color);
 }
 
 .nav-links {
@@ -99,7 +100,7 @@ a:hover {
 }
 
 .nav-links a {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 500;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
@@ -125,13 +126,12 @@ a:hover {
 /* Header Section */
 .header {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 65px 20px;
+    align-items: center; /* محاذاة العناصر عموديًا */
+    justify-content: space-between;
+    padding: 70px 50px;
     background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
     color: var(--light-color);
-    min-height: 90vh; /* تعديل الارتفاع ليكون مناسبًا */
+    min-height: 95vh; /* تعديل الارتفاع ليكون مناسبًا */
     position: relative;
     overflow: hidden;
 }
@@ -142,7 +142,7 @@ a:hover {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: rgba(211, 27, 239, 0.578);
+    background: linear-gradient(to bottom right, #050606,#f39c12);
     border-radius: 50%;
     z-index: 0;
 }
@@ -170,28 +170,45 @@ a:hover {
 /* Header Content */
 .header-content {
     z-index: 1;
-    text-align: center;
     max-width: 600px;
+    margin-right: 20px; /* إضافة مسافة بين النص والصورة */
 }
 
 .header-content h2 {
-    text-align: center;
     font-size: 2.4em;
     margin-bottom: 16px;
     color: var(--accent-color);
 }
 
 .header-content p {
-    text-align: center;
     font-size: 1.2em;
+    padding-right: 20px; /* مسافة بين النص والصورة */
     line-height: 1.4;
     margin-bottom: 20px;
     color: var(--light-color);
 }
 
+/* Image Styling (Header Image First) */
+.header-image {
+    flex: 1;
+    z-index: 1;
+    margin-bottom: 20px; /* إضافة مسافة أسفل الصورة */
+    margin-left: 250px; /* إضافة مسافة بين الصورة والنص */
+}
+.header-image img {
+    width: 100%;
+    padding: 6px; /* ضبط المسافات الداخلية */
+    max-width: 400px; /* تقليل الحجم الأقصى */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 20px 40px #f0f00647;
+    border: 1px solid var(--accent-color);
+}
+
+/* Header Buttons */
 .header-buttons .btn {
     padding: 14px 20px;
-    background: linear-gradient(to bottom right, #0f1313, #9c09f1);
+    background: linear-gradient(to bottom right,var(--cont-color) , #050606, var(--cont-color));
     font-weight: bold;
     color: var(--light-color);
     border: none;
@@ -206,15 +223,14 @@ a:hover {
     overflow: hidden;
 }
 
-
 .header-buttons .btn:hover {
     transform: scale(1.09);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
-/* زر ثانوي */
+/* Secondary Button */
 .header-buttons .btn.secondary {
-    background: linear-gradient(to bottom right, #0f1313, rgb(245, 7, 213));
+    background: linear-gradient(to bottom left,var(--cont-color) , #050606 ,var(--cont-color));
 }
 
 .header-buttons .btn.secondary:hover {
@@ -223,20 +239,6 @@ a:hover {
 }
 
 
-/* Image Styling (Header Image First) */
-.header-image {
-    z-index: 1;
-    margin-bottom: 30px; /* إضافة مسافة أسفل الصورة */
-}
-.header-image img {
-    width: 100%;
-    padding: 8px; /* ضبط المسافات الداخلية */
-    max-width: 340px; /* تقليل الحجم الأقصى */
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    border: 2.5px solid var(--accent-color);
-}
 
         #services {
             padding: 180px 20px;
@@ -247,7 +249,7 @@ a:hover {
             overflow: hidden;
             border-top: 5px solid var(--primary-color);
             border-bottom: 1px solid var(--primary-color);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
         }
 
         #services h2 {
@@ -278,7 +280,7 @@ a:hover {
 
         .service-item {
             background: var(--gray-2);
-            color: #cd21f3;
+            color: var(--cont-color);
             padding: 20px;
             border-radius: 50px;
             box-shadow: 0 8px 12px rgba(212, 21, 212, 0.2);
@@ -403,7 +405,7 @@ a:hover {
     font-size: 1.1em;
     list-style-type: disc;
     padding-left: 20px;
-    color: #cd21f3;
+    color: var(--cont-color);
 }
 
 .experience-item ul li {
@@ -540,7 +542,7 @@ a:hover {
     font-size: 1em;
     list-style-type: disc;
     padding-left: 20px;
-    color: #cd21f3;
+    color: var(--cont-color);
 }
 
 .project-item ul li {
@@ -583,7 +585,7 @@ a:hover {
 
 #about p {
     font-size: 1.2em;
-    color: #cd21f3;
+    color: var(--cont-color);
     line-height: 1.6;
     margin-bottom: 20px;
     max-width: 800px;
@@ -634,7 +636,7 @@ a:hover {
 
 #contact p {
     font-size: 1.2em;
-    color: #cd21f3;
+    color: var(--cont-color);
     line-height: 1.6;
     margin-bottom: 20px;
     max-width: 800px;
@@ -778,8 +780,8 @@ a:hover {
     position: fixed;
     top: 0;
     z-index: 1000;
-    color: #e61af9;
-    box-shadow: 0 3px 4px rgba(221, 8, 132, 0.15);
+    color: var(--cont-color);
+    box-shadow: 0 4px 6px rgba(245, 183, 13, 0.19);
 }
 
 .navbar .logo {
@@ -790,7 +792,7 @@ a:hover {
 }
 
 .navbar .logo span {
-    color: #c103f6;
+    color: var(--accent-color);
 }
 
 .nav-links {
@@ -843,7 +845,7 @@ a:hover {
     position: absolute;
     width: 300px;
     height: 300px;
-    background: rgba(241, 48, 228, 0.33);
+    background: linear-gradient(to bottom right, #050606,#f39c12);
     border-radius: 50%;
     z-index: 0;
 }
@@ -891,7 +893,7 @@ a:hover {
 
 .header-buttons .btn {
     padding: 15px 50px;
-    background: linear-gradient(to bottom right, #0f1313, #9c09f1);
+    background: linear-gradient(to bottom right,var(--cont-color) , #050606 ,var(--cont-color));
     font-weight: bold;
     color: var(--light-color);
     border: none;
@@ -922,13 +924,13 @@ a:hover {
 }
 
 .header-image img {
-    padding: 15px 14px;
+    padding: 6px 7px;
     width: 100%;
-    max-width: 253px;
+    max-width: 255px;
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 15px 30px rgba(212, 21, 212, 0.2);
-    border: 2.5px solid var(--accent-color);
+    box-shadow: 0 4px 6px rgba(245, 183, 13, 0.203);
+    border: 1.2px solid var(--accent-color);
 }
 
 #services {
@@ -971,7 +973,7 @@ a:hover {
 
         .service-item {
             background: var(--gray-2);
-            color: #cd21f3;
+            color: var(--cont-color);
             padding: 20px;
             border-radius: 50px;
             box-shadow: 0 8px 12px rgba(212, 21, 212, 0.2);
@@ -1099,7 +1101,7 @@ a:hover {
     font-size: 1.1em;
     list-style-type: disc;
     padding-left: 20px;
-    color: #cd21f3;
+    color: var(--cont-color);
 }
 
 .experience-item ul li {
@@ -1239,7 +1241,7 @@ a:hover {
     font-size: 1.1em;
     list-style-type: disc;
     padding-left: 20px;
-    color: #cd21f3;
+    color: var(--cont-color);
 }
 
 .project-item ul li {
@@ -1281,7 +1283,7 @@ a:hover {
 
 #about p {
     font-size: 0.8em;
-    color: #cd21f3;
+    color: var(--cont-color);
     line-height: 1.5;
     margin-bottom: 20px;
     max-width: 800px;
@@ -1332,7 +1334,7 @@ a:hover {
 
 #contact p {
     font-size: 1em;
-    color: #cd21f3;
+    color: var(--cont-color);
     line-height: 1.4;
     margin-bottom: 20px;
     max-width: 800px;
@@ -1461,9 +1463,6 @@ footer p {
 <!-- Header Section -->
 <section id="home" class="header">
     <div class="header-content">
-        <div class="header-image">
-            <img src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg" alt="Profile Image">
-        </div>
         <h1>Hi, I'm Nour Hesham</h1>
         <h2>Data Scientist</h2>
         <p>Transforming data into actionable insights with expertise in machine learning, data visualization, and statistical analysis. Explore my work and connect with me!</p>
@@ -1472,8 +1471,11 @@ footer p {
             <a href="#projects" class="btn secondary">Explore Projects</a>
         </div>
     </div>
-
+    <div class="header-image">
+        <img src="imgs\WhatsApp Image 2024-02-19 at 15.06.21_c79dd09c.jpg" alt="Profile Image">
+    </div>
 </section>
+
 
 
 <!-- Services Section -->
