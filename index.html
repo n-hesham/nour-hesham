@@ -72,9 +72,9 @@ a:hover {
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Ensures space between logo and links */
     align-items: center;
-    padding: 16px 20px;
+    padding: 14px 20px;
     background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
     position: sticky;
     top: 0;
@@ -95,22 +95,26 @@ a:hover {
     font-size: 1.8em;
     font-weight: bold;
     text-transform: uppercase;
-
+    flex: 0 0 auto; /* Prevents logo from stretching */
 }
-
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 20px;
+    flex: 1; /* Takes up available space */
+    justify-content: center; /* Centers the links horizontally */
 }
 
 .nav-links a {
+    display: flex; /* Ensures text alignment */
+    justify-content: center;
+    align-items: center;
     font-size: 1.1em;
     font-weight: 500;
     text-decoration: none;
     color: var(--cont-color);
-    padding: 8px 12px;
+    padding: 8px 15px;
     border-radius: 4px;
     transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out;
 }
@@ -120,6 +124,7 @@ a:hover {
     color: var(--accent-color);
     background: rgba(255, 255, 255, 0.1);
 }
+
 
 /* Responsive Burger Menu */
 .burger {
@@ -211,13 +216,13 @@ a:hover {
 .header-image {
     flex: 1;
     z-index: 1;
-    margin-bottom: 20px; /* إضافة مسافة أسفل الصورة */
-    margin-left: 250px; /* إضافة مسافة بين الصورة والنص */
+    margin-bottom: 2px; /* إضافة مسافة أسفل الصورة */
+    margin-left: 200px; /* إضافة مسافة بين الصورة والنص */
 }
 .header-image img {
     width: 100%;
     padding: 6px; /* ضبط المسافات الداخلية */
-    max-width: 400px; /* تقليل الحجم الأقصى */
+    max-width: 450px; /* تقليل الحجم الأقصى */
     height: auto;
     border-radius: 50%;
     box-shadow: 0 20px 40px #f0f00647;
@@ -259,76 +264,95 @@ a:hover {
 
 
 
-        #services {
-            padding: 180px 20px;
-            background: var(--gray-2);
-            text-align: center;
-            position: relative;
-            min-height: 60vh; /* تعديل الارتفاع ليكون مناسبًا */
-            overflow: hidden;
-            border-top: 5px solid var(--primary-color);
-            border-bottom: 1px solid var(--primary-color);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
-        }
+/* Services Section */
+#services {
+    padding: 180px 20px;
+    background: var(--gray-2);
+    text-align: center;
+    position: relative;
+    min-height: 60vh; /* يضمن ارتفاعًا مناسبًا */
+    overflow: hidden;
+    border-top: 5px solid var(--primary-color);
+    border-bottom: 1px solid var(--primary-color);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+}
 
-        #services h2 {
-            color: var(--gray-1);
-            font-size: 2.8em;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 700;
-            animation: slideIn 1s ease-out;
-            margin-bottom: 40px;
-            position: relative;
-        }
+/* Section Title */
+#services h2 {
+    color: var(--gray-1);
+    font-size: 2.8em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    animation: slideIn 1s ease-out;
+    margin-bottom: 40px;
+    position: relative;
+}
 
-        #services h2::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            display: block;
-            margin: 10px auto;
-        }
+#services h2::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background: var(--accent-color);
+    display: block;
+    margin: 10px auto;
+}
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* تغيير الأعمدة حسب المساحة */
+    gap: 30px; /* تباعد أكبر بين العناصر */
+    justify-content: center; /* توسيط الشبكة عند نقص العناصر */
+    align-items: stretch; /* يضمن ارتفاعًا موحدًا لكل العناصر */
+}
 
-        .service-item {
-            background: var(--items);
-            color: var(--cont-color);
-            padding: 20px;
-            border-radius: 50px;
-            box-shadow: 0 8px 10px rgba(233, 230, 16, 0.156);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
+/* Individual Service Item */
+.service-item {
+    background: var(--items);
+    color: var(--cont-color);
+    padding: 30px; /* مساحة داخلية أكبر */
+    border-radius: 100px; /* تغيير التصميم ليكون أكثر نعومة */
+    min-height: 250px; /* ضمان ارتفاع موحد لكل عنصر */
+    display: flex; /* يجعل التصميم داخليًا مرنًا */
+    flex-direction: column;
+    justify-content: center; /* توسيط المحتوى عموديًا */
+    align-items: center; /* توسيط المحتوى أفقيًا */
+    box-shadow: 0 8px 15px rgba(233, 230, 16, 0.156); /* تحسين الظل */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
+.service-item:hover {
+    transform: translateY(-10px); /* تأثير أعلى عند التمرير */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3); /* ظل أكثر وضوحًا */
+}
 
-        .service-item h3 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: var(--accent-color);
-        }
+/* Service Title */
+.service-item h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--accent-color);
+    text-transform: uppercase; /* نص العنوان بالكامل بحروف كبيرة */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* ظل للنص */
+}
 
-        .service-item p {
-            font-size: 1.2em;
-        }
+/* Service Description */
+.service-item p {
+    font-size: 1.1em;
+    line-height: 1.6; /* تحسين المسافة بين الأسطر */
+    text-align: center; /* محاذاة النص ليتناسب مع التوسيط */
+    color: var(--cont-color);
+}
+
 /* Experience Section */
 #experience {
     padding: 80px 20px;
-    background: var(--gray-2);
+    background: linear-gradient(to right, var(--gray-2), var(--primary-color));
     text-align: center;
     position: relative;
     overflow: hidden;
     border-top: 3px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
+    border-bottom: 1px solid var(--accent-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     color: #fff;
 }
@@ -347,7 +371,7 @@ a:hover {
 
 #experience h2::after {
     content: '';
-    width: 80px;
+    width: 100px;
     height: 4px;
     background: var(--accent-color);
     display: block;
@@ -356,22 +380,26 @@ a:hover {
 
 /* Experience Grid */
 .experience-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: start;
+    padding: 0 10px;
+}
 
 /* Individual Experience Item */
 .experience-item {
     background: var(--items);
     padding: 20px;
-    border-radius: 50px;
+    width: 650px; /* حجم ثابت للعناصر */
+    border-radius: 20px;
     box-shadow: 0 8px 10px rgba(233, 230, 16, 0.156);
-    margin-bottom: 30px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
     overflow: hidden;
     position: relative;
     color: #f7f6f6;
+    text-align: center;
 }
 
 .experience-item:hover {
@@ -379,58 +407,53 @@ a:hover {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Image with overlay effect */
+/* Image Styling */
 .experience-item img {
     width: 250px;
-    height: 20;
-    padding: 20px;
-    object-fit: cover;
-    border-radius: 10%;
+    height: 180px;
+    border-radius: 10px;
+    margin-bottom: 15px;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.experience-item img:hover {
+    transform: scale(1.1);
+    filter: brightness(80%);
 }
 
 /* Heading and Description */
 .experience-item h3 {
-    font-size: 1.2em;
-    margin-bottom: 20px;
+    font-size: 1.5em;
+    margin-bottom: 15px;
     color: var(--accent-color);
     font-weight: 600;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     transition: color 0.3s ease-in-out;
 }
 
 .experience-item:hover h3 {
     color: var(--primary-color);
 }
-/* Overlay Text on Image Hover */
-.experience-item img:hover + .project-text {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.experience-item img:hover {
-    transform: scale(1.1);
-    filter: brightness(70%);
-}
 
 .experience-item p {
     font-size: 1em;
     margin-bottom: 12px;
     line-height: 1.6;
-    color: #555;
+    color: #ddd;
 }
 
 /* Experience List */
 .experience-item ul {
-    font-size: 1.1em;
+    font-size: 1em;
     list-style-type: disc;
     padding-left: 20px;
+    text-align: left;
     color: var(--cont-color);
 }
 
 .experience-item ul li {
     margin-bottom: 10px;
 }
+
 /* Adding animations for content */
 @keyframes slideIn {
     0% {
@@ -442,6 +465,7 @@ a:hover {
         opacity: 1;
     }
 }
+
 
 /* Projects Section */
 #projects {
@@ -477,19 +501,22 @@ a:hover {
     margin: 10px auto;
 }
 
+/* Project Grid */
 .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-            gap: 20px;
-        }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-content: center; /* توسيط العناصر إذا كانت أقل */
+}
 
 /* Individual Project Item */
 .project-item {
     background: var(--items);
     padding: 20px;
-    border-radius: 50px;
-    box-shadow: 0 8px 10px rgba(233, 230, 16, 0.156);
-    margin-bottom: 30px;
+    width: 650px; /* حجم ثابت للعناصر */
+    border-radius: 20px;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+    margin: auto; /* توسيط العنصر في حالة الأعمدة الناقصة */
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
     position: relative;
@@ -503,10 +530,8 @@ a:hover {
 
 /* Image with overlay effect */
 .project-item img {
-    width:fit-content;
-    height: 240px;
-    padding: 20px;
-    object-fit: cover;
+    width: 350px;
+    height: 200px;
     border-radius: 10%;
     transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
@@ -581,6 +606,7 @@ a:hover {
         opacity: 1;
     }
 }
+
 
 
  /* About Section Styling */
@@ -1452,7 +1478,7 @@ footer p {
     <div class="header-content">
         <h1>Hi, I'm Nour Hesham</h1>
         <h2>Data Scientist</h2>
-        <p>Transforming data into actionable insights with expertise in machine learning, data visualization, and statistical analysis. Explore my work and connect with me!</p>
+        <p>Leveraging expertise in machine learning, data visualization, and statistical analysis to transform complex data into actionable insights. Discover my projects and feel free to connect with me to collaborate or learn more!</p>
         <div class="header-buttons">
             <a href="files\Nour_Hesham_DS_CV 2025.pdf" class="btn">View Resume</a>
             <a href="#projects" class="btn secondary">Explore Projects</a>
