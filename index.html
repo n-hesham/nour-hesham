@@ -312,6 +312,41 @@ a:hover {
 }
 
 
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hidden for smaller screens, toggleable via burger */
+        flex-direction: column;
+        background: var(--dark-background-color);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        gap: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-links.show {
+        display: flex; /* Shown when burger menu is toggled */
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .header-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header-content h2 {
+        font-size: 2em;
+    }
+
+    .header-content p {
+        font-size: 1.1em;
+    }
+}
 
 
 /* Services Section */
