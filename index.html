@@ -72,7 +72,7 @@ a:hover {
 /* Navbar */
 .navbar {
     display: flex;
-    justify-content: space-between; /* Ensures space between logo and links */
+    justify-content: space-between;
     align-items: center;
     padding: 14px 20px;
     background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
@@ -95,24 +95,20 @@ a:hover {
     font-size: 1.8em;
     font-weight: bold;
     text-transform: uppercase;
-    flex: 0 0 auto; /* Prevents logo from stretching */
+    flex: 0 0 auto;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
     gap: 20px;
-    flex: 1; /* Takes up available space */
-    justify-content: center; /* Centers the links horizontally */
+    justify-content: center;
+    flex: 1;
 }
 
 .nav-links a {
-    display: flex; /* Ensures text alignment */
-    justify-content: center;
-    align-items: center;
     font-size: 1.1em;
     font-weight: 500;
-    text-decoration: none;
     color: var(--cont-color);
     padding: 8px 15px;
     border-radius: 4px;
@@ -124,7 +120,6 @@ a:hover {
     color: var(--accent-color);
     background: rgba(255, 255, 255, 0.1);
 }
-
 
 /* Responsive Burger Menu */
 .burger {
@@ -150,23 +145,23 @@ a:hover {
 /* Header Section */
 .header {
     display: flex;
-    align-items: center; /* محاذاة العناصر عموديًا */
+    align-items: center;
     justify-content: space-between;
     padding: 70px 50px;
     background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
     color: var(--light-color);
-    min-height: 95vh; /* تعديل الارتفاع ليكون مناسبًا */
+    min-height: 95vh;
     position: relative;
     overflow: hidden;
 }
 
-/* Floating Circles */
-.header::before, .header::after {
+.header::before,
+.header::after {
     content: '';
     position: absolute;
     width: 500px;
     height: 500px;
-    background: linear-gradient(to bottom left,#647070, #000000,#f69a068a);
+    background: linear-gradient(to bottom left, #647070, #000000, #f69a068a);
     border-radius: 50%;
     z-index: 0;
 }
@@ -176,6 +171,7 @@ a:hover {
     left: -200px;
     animation: float 6s infinite alternate;
 }
+
 .header::after {
     bottom: -200px;
     right: -200px;
@@ -191,76 +187,130 @@ a:hover {
     }
 }
 
-/* Header Content */
 .header-content {
     z-index: 1;
     max-width: 600px;
-    margin-right: 20px; /* إضافة مسافة بين النص والصورة */
+    margin-right: 20px;
+    padding: 15px;
+    text-align: left;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .header-content h2 {
-    font-size: 2.4em;
-    margin-bottom: 16px;
+    font-size: 2.6em;
+    margin-bottom: 24px;
     color: var(--accent-color);
+    font-weight: 700;
+    line-height: 1.3;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .header-content p {
-    font-size: 1.2em;
-    padding-right: 20px; /* مسافة بين النص والصورة */
-    line-height: 1.4;
-    margin-bottom: 20px;
+    font-size: 1.3em;
+    padding-right: 20px;
+    line-height: 1.8;
+    margin-bottom: 24px;
     color: var(--light-color);
+    animation: slideIn 1.2s ease-in-out;
 }
 
-/* Image Styling (Header Image First) */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 .header-image {
     flex: 1;
     z-index: 1;
-    margin-bottom: 2px; /* إضافة مسافة أسفل الصورة */
-    margin-left: 200px; /* إضافة مسافة بين الصورة والنص */
-}
-.header-image img {
-    width: 90%;
-    padding: 6px; /* ضبط المسافات الداخلية */
-    max-width: 450px; /* تقليل الحجم الأقصى */
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 20px 40px #f0f00647;
-    border: 1px solid var(--accent-color);
+    margin-left: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 1.2s ease;
 }
 
-/* Header Buttons */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.header-image img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+    border: 3px solid var(--accent-color);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.header-image img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
 .header-buttons .btn {
-    padding: 14px 20px;
-    background: linear-gradient(to bottom right,var(--cont-color) , #050606, var(--cont-color));
-    font-weight: bold;
+    padding: 14px 28px;
+    background: linear-gradient(to bottom right, var(--cont-color), #050606, var(--cont-color));
+    font-weight: 600;
     color: var(--light-color);
     border: none;
     border-radius: 30px;
-    position: relative;
     cursor: pointer;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease-in-out;
     text-decoration: none;
     display: inline-block;
-    margin: 10px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+    position: relative;
 }
 
 .header-buttons .btn:hover {
-    transform: scale(1.09);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+    background: linear-gradient(to bottom left, var(--cont-color), #121212, var(--cont-color));
 }
 
-/* Secondary Button */
 .header-buttons .btn.secondary {
-    background: linear-gradient(to bottom left,var(--cont-color) , #050606 ,var(--cont-color));
+    background: linear-gradient(to bottom left, var(--cont-color), #1c1c1c, var(--cont-color));
+    color: var(--light-color);
 }
 
 .header-buttons .btn.secondary:hover {
-    transform: scale(1.09);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to top right, var(--cont-color), #252525, var(--cont-color));
 }
+
 
 
 
@@ -278,7 +328,7 @@ a:hover {
 
 #services h2 {
     color: var(--gray-1);
-    font-size: 2.2em;  /* زيادة حجم الخط للحفاظ على وضوح العنوان */
+    font-size: 2.4em; /* Increased for clarity */
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 700;
@@ -289,7 +339,7 @@ a:hover {
 
 #services h2::after {
     content: '';
-    width: 80px;
+    width: var(--line-width, 80px); /* Used variable for flexibility */
     height: 4px;
     background: var(--accent-color);
     display: block;
@@ -298,34 +348,56 @@ a:hover {
 
 .services-grid {
     display: grid;
-    font-size: small;  /* حجم خط مناسب للعرض */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* عرض أعمدة قابل للتغيير وفقًا لحجم الشاشة */
-    gap: 20px;  /* المسافة بين العناصر */
+    font-size: small;
+    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width, 240px), 1fr)); /* Variable for grid column width */
+    gap: 25px; /* Increased for better spacing */
+    align-items: stretch; /* Ensures even alignment */
 }
 
 .service-item {
     background: var(--items);
     color: var(--cont-color);
-    padding: 25px;  /* زيادة الحشو لجعل العناصر أكثر تميزًا */
-    border-radius: 50px;  /* تقليل الحواف الدائرية لزيادة التوازن */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);  /* تعديل الظل ليكون أخف وأجمل */
+    padding: 30px; /* Slightly increased for better spacing */
+    border-radius: var(--border-radius, 25px); /* Use variable for radius */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .service-item:hover {
-    transform: translateY(-8px);  /* تعديل الحركة عند التمرير */
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);  /* تغيير الظل عند التمرير */
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for hover */
 }
 
 .service-item h3 {
-    font-size: 1.8em;  /* زيادة حجم الخط للعنوان الداخلي */
-    margin-bottom: 12px;
+    font-size: 1.8em;
+    margin-bottom: 15px; /* Increased for better spacing */
     color: var(--accent-color);
+    text-align: center; /* Align heading for consistency */
 }
 
 .service-item p {
-    font-size: 1.2em;  /* تعديل الحجم ليصبح أكثر وضوحًا */
+    font-size: 1.2em;
+    line-height: 1.6; /* Increased for readability */
+    text-align: justify; /* Improved alignment */
+    color: var(--gray-1);
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #services {
+        padding: 100px 15px; /* Reduced padding for smaller screens */
+    }
+
+    .service-item {
+        padding: 20px;
+        border-radius: 15px; /* Adjusted for compact view */
+    }
+
+    .services-grid {
+        gap: 15px; /* Tighter spacing */
+    }
+}
+
 
 /* Experience Section */
 #experience {
@@ -450,6 +522,22 @@ a:hover {
         opacity: 1;
     }
 }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #experience {
+        padding: 60px 15px; /* Reduced padding for smaller screens */
+    }
+
+    .experience-item {
+        padding: 20px;
+    }
+
+    .experience-grid {
+        gap: 15px;
+    }
+}
+
 
 /* Projects Section */
 #projects {
@@ -591,20 +679,44 @@ a:hover {
     }
 }
 
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #projects h2 {
+        font-size: 2em;
+    }
+
+    .project-item {
+        padding: 15px;
+    }
+
+    .project-item h3 {
+        font-size: 1.2em;
+    }
+
+    .project-item p {
+        font-size: 0.9em;
+    }
+
+    .project-text {
+        font-size: 0.9em;
+        padding: 15px;
+    }
+}
+
 
  /* About Section Styling */
 #about {
     background: var(--gray-2);
-    padding: 200px 20px;
+    padding: 150px 20px; /* Adjusted padding for smaller screens */
     border-top: 3px solid var(--primary-color);
     border-bottom: 1px solid var(--primary-color);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    min-height: 50vh; /* تعديل الارتفاع ليكون مناسبًا */
+    min-height: 50vh; /* Ensures a consistent height */
     text-align: center;
 }
 
 #about h2 {
-    font-size: 2.8em;
+    font-size: 2.5em; /* Adjusted font size for better scaling */
     color: var(--gray-1);
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -614,13 +726,14 @@ a:hover {
 }
 
 #about p {
-    font-size: 1.2em;
+    font-size: 1.2em; /* Slightly reduced for smaller screens */
     color: var(--cont-color);
     line-height: 1.6;
     margin-bottom: 20px;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+    text-align: justify; /* Improves readability on smaller devices */
 }
 
 #about p:first-of-type {
@@ -640,6 +753,22 @@ a:hover {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    #about {
+        padding: 100px 15px; /* Reduce padding for tablets */
+    }
+
+    #about h2 {
+        font-size: 2em; /* Smaller heading font size for tablets */
+    }
+
+    #about p {
+        font-size: 1.1em; /* Adjust font size for readability */
+        max-width: 90%; /* Allow text to occupy more space */
     }
 }
 
@@ -714,342 +843,9 @@ textarea {
     background-color: var(--accent-color);
 }
 
-/* Footer Section Styling */
-footer {
-    background-color: #222;
-    color: #fff;
-    padding: 6px 0px;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-footer p {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    opacity: 0.7;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.footer-links a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.footer-links a:hover {
-    color: var(--accent-color);
-    transform: scale(1.1);
-}
-
-.social-media {
-    margin-top: 20px;
-}
-
-.social-media .social-icon {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 15px;
-    font-size: 1.5em;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-media .social-icon:hover {
-    color: var(--accent-color);
-    transform: scale(1.2);
-}
-
-/* Responsive Design */
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    /* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.5;
-    color: var(--gray-1);
-    background: var(--background-color);
-    overflow-x: hidden;
-}
-
-a {
-    padding: 0px;
-    text-decoration: none;
-    width: 15%;
-    box-shadow: 0 3px 4px rgba(252, 215, 238, 0.15);
-    font-size: x-small;
-    color: inherit;
-    transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-    color: var(--accent-color);
-}
-.nav-links {
-        display: none;
-        flex-direction: column;
-        background: var(--dark-background-color);
-        position: absolute;
-        top: 60px;
-        right: 20px;
-        width: 200px;
-        border-radius: 8px;
-        padding: 15px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .burger {
-        display: flex;
-    }
-
-/* Header Section */
-.header {
-    display: flex;
-    flex-wrap: wrap-reverse;
-    align-items: center;
-    justify-content: center;
-    padding: 6px 20px;
-    background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
-    color: var(--light-color);
-    min-height: 65vh;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Floating Circles */
-.header::before, .header::after {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(to bottom left,#647070, #000000,#f69a068a);
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.header::before {
-    top: -50px;
-    left: -100px;
-    animation: float 6s infinite alternate;
-}
-
-.header::after {
-    bottom: -50px;
-    right: -100px;
-    animation: float 8s infinite alternate-reverse;
-}
-
-@keyframes float {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-20px);
-    }
-}
-
-/* Header Content */
-.header-content {
-    z-index: 1;
-    max-width: 600px;
-}
-
-.header-content h2 {
-    font-size: 1.5em;
-    margin-bottom: 14px;
-    color: var(--accent-color);
-}
-
-.header-content p {
-    font-size: 0.9em;
-    line-height: 1.5;
-    margin-bottom: 1px;
-    color: var(--light-color);
-}
-
-.header-buttons .btn {
-    padding: 15px 50px;
-    background: linear-gradient(to bottom right,var(--cont-color) , #050606 ,var(--cont-color));
-    font-weight: bold;
-    color: var(--light-color);
-    border: none;
-    border-radius: 40px;
-    position: relative;
-    cursor: pointer;
-    transition: all 0.4s ease;
-    text-decoration: none;
-    display: inline-block;
-    margin: 12px;
-    overflow: hidden;
-}
-
-.header-content .btn:hover {
-    transform: translateY(-6px) scale(1.05);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-/* Image Styling */
-.header-image {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    height: 44vh; 
-    margin: auto;
-    z-index: 1;
-}
-
-.header-image img {
-    padding: 0px 1px;
-    width: 100%;
-    max-width: 260px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 4px 6px rgba(245, 183, 13, 0.203);
-    border: 1.2px solid var(--accent-color);
-}
-
-#services h2 {
-        font-size: 2em;  /* تقليل حجم العنوان قليلاً للموبايل */
-        margin-bottom: 30px;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;  /* عرض عمود واحد للموبايل */
-        gap: 18px;  /* تقليل المسافة بين العناصر */
-    }
-
-    .service-item {
-        padding: 20px;  /* تقليل الحشو للموبايل */
-    }
-
-    .service-item h3 {
-        font-size: 1.1em;  /* تقليل حجم الخط للعنوان الداخلي */
-    }
-
-    .service-item p {
-        font-size: 0.9em;  /* تقليل حجم الخط للنص */
-    }
-/* Experience Section */
-#experience h2 {
-        font-size: 2em;  /* تقليل الحجم أكثر للموبايل */
-        margin-bottom: 30px;
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr;  /* عرض عمود واحد للموبايل */
-        gap: 16px;  /* تقليل المسافة بين العناصر */
-    }
-
-    .experience-item {
-        padding: 15px;  /* تقليل الحشو في العناصر */
-    }
-
-    .experience-item h3 {
-        font-size: 1.2em;  /* تقليل حجم الخط */
-    }
-
-    .experience-item p {
-        font-size: 0.8em;  /* تقليل حجم النص */
-    }
-
-    /* Experience List */
-    .experience-item ul {
-    font-size: 0.7em;
-    list-style-type: disc;
-    padding-left: 20px;
-    text-align: left;
-    color: var(--cont-color);
-}
-
-    .experience-item img {
-        max-width: 200px;  /* تقليل حجم الصورة */
-    }
-
-/* Projects Section */
-#projects h2 {
-        font-size: 2em;
-        letter-spacing: 2px;
-    }
-
-.project-item {
-    width: 100%; /* العرض يتناسب مع الشبكة */
-    padding: 15px;
-    border-radius: 30px;
-    background: var(--items);
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-    margin: auto; /* توسيط العنصر */
-    transition: transform 0.3s ease-in-out;
-    overflow: hidden;
-    position: relative;
-    color: #f7f6f6;
-    display: flex;
-    flex-direction: column; /* ترتيب العناصر عموديًا */
-    align-items: center; /* محاذاة العناصر في المنتصف */
-}
-
-/* الصورة */
-.project-item img {
-    width: 200px; /* عرض الصورة */
-    height: auto; /* الطول تلقائي */
-    border-radius: 10px;
-    margin-bottom: 15px; /* مسافة أسفل الصورة */
-}
-
-/* العنوان */
-.project-item h3 {
-    font-size: 1em;
-    margin-bottom: 10px;
-}
-
-/* الوصف */
-.project-item p {
-    font-size: 0.8em;
-    margin-bottom: 10px;
-    text-align: center; /* توسيط النص */
-}
-
-/* القائمة */
-.project-item ul {
-    font-size: 0.8em;
-    list-style-type: disc;
-    padding-left: 20px;
-    text-align: left; /* جعل النص بمحاذاة اليسار */
-}
-
-
-#about h2 {
-    font-size: 2em;  /* تقليل الحجم أكثر للموبايل */
-        margin-bottom: 30px;
-    }
-
-#about p {
-    font-size: 0.8em;
-    line-height: 1.5;
-}
-
-
-
-#contact h2 {
+    #contact h2 {
     font-size: 2em;  /* تقليل الحجم أكثر للموبايل */
         margin-bottom: 30px;
     }
@@ -1074,22 +870,108 @@ textarea {
 .submit-btn {
     font-size: 0.9em;
 }
+}
 
-/* Footer Section Styling */
+/* Footer Styling */
+footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 10px 8;
+    text-align: center;
+    font-size: 1.1em;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 10;
+    border-top: 5px solid var(--primary-color);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(to right, #000000, #000000, #faf9f8);
+}
+
+footer .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
 
 footer p {
-    font-size: 0.8em;
+    margin-bottom: 20px;
+    line-height: 1.4;
 }
 
-.social-media {
+footer .contact-info p {
+    margin: 3px 0;
+    font-size: 1em;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer a:hover {
+    color: #75c2cf;
+    transform: translateY(-3px);
+}
+
+footer .social-media {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.social-media .social-icon {
-    font-size: 1.4em;
+footer .social-icon {
+    font-size: 1.8em;
+    color: #778599;
+    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    padding: 1px;
+    border-radius: 20%;
+    cursor: pointer;
 }
 
+footer .social-icon:hover {
+    color: var(--primary-color);
+    transform: scale(1.1);
+    background-color: #dfebf0;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 15px;
+        font-size: 1em;
+    }
+
+    footer .social-media {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+
+    footer .contact-info p {
+        font-size: 0.9em;
+    }
+}
+
+/* Accessible Contrast for Links */
+footer a:focus, footer .social-icon:focus {
+    outline: 3px solid #00bcd4;
+    outline-offset: 2px;
+}
+
+/* Hover Glow for Icons */
+footer .social-icon:hover {
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+
 
     </style>
     
@@ -1241,13 +1123,25 @@ footer p {
 <footer>
     <div class="footer-content">
         <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+        <div class="contact-info">
+            <p>Phone: <a href="tel:+201228013730">+20 122 801 3730</a></p>
+            <p>Email: <a href="mailto:nour.hesham.ds@gmail.com">nour.hesham.ds@gmail.com</a></p>
+        </div>
         <div class="social-media">
-            <a href="https://www.linkedin.com/in/nour-eldin-hesham-557770238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/n-hesham" target="_blank" class="social-icon"><i class="fab fa-github"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=100089069449778&mibextid=ZbWKwL" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/nour-eldin-hesham-557770238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/n-hesham" target="_blank" class="social-icon">
+                <i class="fab fa-github"></i>
+            </a>
         </div>
     </div>
 </footer>
+
+<!-- Font Awesome (if not already included) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
 <script>
     const burger = document.querySelector('.burger');
     const nav = document.querySelector('.nav-links');
