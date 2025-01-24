@@ -312,46 +312,68 @@ a:hover {
 }
 
 
+/* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hidden for smaller screens, toggleable via burger */
+    .nav-links  {
+        display: none;
+    }
+    .header {
         flex-direction: column;
-        background: var(--dark-background-color);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        gap: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+        align-items: center;
+        justify-content: center;
+        padding: 50px 20px;
+        background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
+        color: var(--light-color);
+        min-height: 95vh;
+        position: relative;
+        overflow: hidden;
+        text-align: center;
     }
 
-    .nav-links.show {
-        display: flex; /* Shown when burger menu is toggled */
+    .header-image {
+        order: -1; /* Place the image at the top */
+        margin-bottom: 20px;
     }
 
-    .burger {
-        display: flex;
+    .header-image img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        border-radius: 50%;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        border: 3px solid var(--accent-color);
+        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
     }
 
-    .header-buttons {
-        flex-direction: column;
-        gap: 10px;
+    .header-image img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.8);
     }
 
-    .header-content h2 {
-        font-size: 2em;
+    .header-content {
+        max-width: 90%;
+    }
+
+    .header-content h1 {
+        font-size: 1.4rem;
     }
 
     .header-content p {
-        font-size: 1.1em;
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+    }
+
+    .header-buttons .btn {
+        padding: 8px 16px;
+        font-size: 11px;
     }
 }
 
 
 /* Services Section */
 #services {
-    padding: 180px 20px;
+    padding: 100px 20px; /* Reduced padding for better responsiveness */
     background: var(--gray-2);
     text-align: center;
     position: relative;
@@ -363,18 +385,18 @@ a:hover {
 
 #services h2 {
     color: var(--gray-1);
-    font-size: 2.4em; /* Increased for clarity */
+    font-size: 2.2rem; /* Responsive font size */
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 700;
     animation: slideIn 1s ease-out;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     position: relative;
 }
 
 #services h2::after {
     content: '';
-    width: var(--line-width, 80px); /* Used variable for flexibility */
+    width: 60px; /* Adjusted line width for smaller screens */
     height: 4px;
     background: var(--accent-color);
     display: block;
@@ -383,53 +405,64 @@ a:hover {
 
 .services-grid {
     display: grid;
-    font-size: small;
-    grid-template-columns: repeat(auto-fit, minmax(var(--grid-min-width, 240px), 1fr)); /* Variable for grid column width */
-    gap: 25px; /* Increased for better spacing */
-    align-items: stretch; /* Ensures even alignment */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ensures responsiveness */
+    gap: 20px; /* Consistent spacing between items */
+    padding: 0 10px; /* Adjusted for better spacing on smaller screens */
 }
 
 .service-item {
     background: var(--items);
     color: var(--cont-color);
-    padding: 30px; /* Slightly increased for better spacing */
-    border-radius: var(--border-radius, 25px); /* Use variable for radius */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Reduced shadow intensity */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    padding: 20px; /* Reduced padding for smaller screens */
+    border-radius: 15px; /* Subtle border radius */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-item:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Subtle shadow for hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
 }
 
 .service-item h3 {
-    font-size: 1.8em;
-    margin-bottom: 15px; /* Increased for better spacing */
+    font-size: 1.5rem; /* Responsive font size */
+    margin-bottom: 15px;
     color: var(--accent-color);
-    text-align: center; /* Align heading for consistency */
+    text-align: center;
 }
 
 .service-item p {
-    font-size: 1.2em;
-    line-height: 1.6; /* Increased for readability */
-    text-align: justify; /* Improved alignment */
+    font-size: 1rem; /* Responsive text size */
+    line-height: 1.6; /* Improved readability */
+    text-align: justify;
     color: var(--gray-1);
 }
 
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
     #services {
-        padding: 100px 15px; /* Reduced padding for smaller screens */
+        padding: 80px 15px; /* Adjusted padding for smaller devices */
+        font-size: xx-small;
     }
 
-    .service-item {
-        padding: 20px;
-        border-radius: 15px; /* Adjusted for compact view */
+    #services h2 {
+        font-size: 1.5rem; /* Smaller heading for compact view */
     }
 
     .services-grid {
-        gap: 15px; /* Tighter spacing */
+        gap: 19px; /* Reduced gap for smaller screens */
+    }
+
+    .service-item {
+        padding: 12px; /* Reduced padding for compact view */
+    }
+
+    .service-item h3 {
+        font-size: 1.2rem; /* Smaller heading size for compact view */
+    }
+
+    .service-item p {
+        font-size: 0.8rem; /* Smaller text size for readability */
     }
 }
 
@@ -562,8 +595,13 @@ a:hover {
 @media (max-width: 768px) {
     #experience {
         padding: 60px 15px; /* Reduced padding for smaller screens */
+        font-size: xx-small;
     }
 
+    .experience-item p {
+        font-size: 0.8em;  /* تعديل حجم الخط ليكون أكثر وضوحًا */
+
+    }
     .experience-item {
         padding: 20px;
     }
@@ -714,27 +752,32 @@ a:hover {
     }
 }
 
-/* Media Queries for Responsiveness */
+
+/* Responsive Media Queries */
 @media (max-width: 768px) {
     #projects h2 {
         font-size: 2em;
     }
 
+    .project-grid {
+        gap: 10px; /* Smaller gaps for tablet screens */
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted for smaller screens */
+    }
+
     .project-item {
-        padding: 15px;
+        padding: 15px; /* Smaller padding */
+        font-size: x-small;
+        border-radius: 10px;
+        width: 100%; /* Ensure the item takes full width */
+        box-sizing: border-box; /* Ensures padding doesn't affect width */
     }
 
     .project-item h3 {
-        font-size: 1.2em;
+        font-size: 1em; /* Adjusted heading size */
     }
 
     .project-item p {
-        font-size: 0.9em;
-    }
-
-    .project-text {
-        font-size: 0.9em;
-        padding: 15px;
+        font-size: 0.8em;
     }
 }
 
@@ -802,7 +845,7 @@ a:hover {
     }
 
     #about p {
-        font-size: 1.1em; /* Adjust font size for readability */
+        font-size: 0.8em; /* Adjust font size for readability */
         max-width: 90%; /* Allow text to occupy more space */
     }
 }
@@ -974,37 +1017,28 @@ footer .social-icon:hover {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Responsive Design for Mobile */
+
+/* Responsive Footer for smaller screens */
 @media (max-width: 768px) {
     footer {
-        padding: 30px 15px;
-        font-size: 1em;
-    }
-
-    footer .social-media {
-        flex-direction: column;
-        gap: 15px;
+        padding: 15px 10px; /* Slightly more padding on small screens */
+        font-size: 0.8em;
     }
 
     footer p {
-        font-size: 1em;
+        font-size: 1em; /* Adjust font size */
     }
 
-    footer .contact-info p {
-        font-size: 0.9em;
+    footer .social-media {
+        gap: 15px; /* Reduce gap between icons */
+    }
+
+    footer .social-icon {
+        font-size: 1.5em; /* Slightly smaller social icons */
+        padding: 5px; /* Adjust padding */
     }
 }
 
-/* Accessible Contrast for Links */
-footer a:focus, footer .social-icon:focus {
-    outline: 3px solid #00bcd4;
-    outline-offset: 2px;
-}
-
-/* Hover Glow for Icons */
-footer .social-icon:hover {
-    box-shadow: 0 0 20px var(--primary-color);
-}
 
 
 
