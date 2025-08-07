@@ -1,1238 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Portfolio</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
-            rel="stylesheet">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-            <style>
-:root {
-    --primary-color: #070808; /* Deep black for primary elements */
-    --accent-color: #FFD700; /* Golden color for accents */
-    --secondary-color: #13b4ea; /* Vibrant blue for secondary elements */
-    --highlight-color: #171717b0; /* Warm orange highlight */
-    --background-color: #100e10; /* Dark background */
-    --dark-background-color: rgba(20, 19, 19, 0.222); /* Slightly lighter dark background */
-    --cont-color: #f9ac1dc5;
-    --gray-1: #f8f9fa; /* Light gray for backgrounds or borders */
-    --gray-2: #161717ba; /* Dark gray for subtle text */
-    --gray-3: #e5e7eb; /* Soft light gray for cards or inputs */
-    --gray-4: #2c3e50; /* Rich gray for navbar and headers */
-    --items:#3637395e;
-    --button-bg: #FFD700; /* Golden buttons for emphasis */
-    --button-text: #070808; /* Dark text on buttons */
-    --button-hover-bg: #e5ac00; /* Darker golden for hover effect */
-    --link-color: #13b4ea; /* Bright blue for links */
-    --link-hover-color: #0e7ba5; /* Darker blue for hover state */
-    --success-color: #4caf50; /* Standard green for success */
-    --error-color: #e74c3c; /* Vibrant red for errors */
-    --warning-color: #f39c12; /* Bright orange for warnings */
-    --info-color: #17a2b8; /* Cool blue for informational elements */
-    --input-bg: #ffffff; /* White input backgrounds */
-    --input-border: #bdc3c7; /* Subtle gray border for inputs */
-    --input-focus-bg: #e1f5fe; /* Light blue focus background */
-    --input-focus-border: #00bcd4; /* Bright cyan for focus border */
-    --navbar-bg: #2c3e50; /* Rich gray for navbar */
-    --navbar-text: #ffffff; /* White text for navbar */
-    --navbar-hover-bg: #34495e; /* Slightly lighter gray for navbar hover */
-    --shadow-light: rgba(0, 0, 0, 0.05); /* Softer shadow for light elements */
-    --shadow-dark: rgba(0, 0, 0, 0.15); /* Moderate shadow for dark elements */
-}
-
-
-/* General Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: var(--gray-1);
-    background: var(--background-color);
-    overflow-x: hidden;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-    transition: color 0.3s ease-in-out;
-}
-
-a:hover {
-    color: var(--accent-color);
-}
-
-/* Navbar */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 20px;
-    background: linear-gradient(90deg, var(--primary-color), var(--dark-background-color));
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    color: var(--cont-color);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-.navbar:hover {
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
-}
-
-.navbar .logo {
-    background: linear-gradient(to bottom right, #ff9e01, #ff9e01ee, #38363449, #ffffffd2, #473838);
-    -webkit-background-clip: text;
-    color: transparent;
-    font-size: 1.8em;
-    font-weight: bold;
-    text-transform: uppercase;
-    flex: 0 0 auto;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    justify-content: center;
-    flex: 1;
-}
-
-.nav-links a {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: var(--cont-color);
-    padding: 8px 15px;
-    border-radius: 4px;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out;
-}
-
-.nav-links a:hover {
-    transform: scale(1.1);
-    color: var(--accent-color);
-    background: rgba(255, 255, 255, 0.1);
-}
-
-/* Responsive Burger Menu */
-.burger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.burger div {
-    width: 30px;
-    height: 4px;
-    background-color: var(--light-color);
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
-}
-
-.burger:hover {
-    transform: rotate(15deg);
-}
-
-/* Header Section */
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 70px 50px;
-    background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
-    color: var(--light-color);
-    min-height: 95vh;
-    position: relative;
-    overflow: hidden;
-}
-
-.header::before,
-.header::after {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: linear-gradient(to bottom left, #647070, #000000, #f69a068a);
-    border-radius: 50%;
-    z-index: 0;
-}
-
-.header::before {
-    top: -10px;
-    left: -200px;
-    animation: float 6s infinite alternate;
-}
-
-.header::after {
-    bottom: -200px;
-    right: -200px;
-    animation: float 8s infinite alternate-reverse;
-}
-
-@keyframes float {
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-20px);
-    }
-}
-
-.header-content {
-    z-index: 1;
-    max-width: 600px;
-    margin-right: 20px;
-    padding: 15px;
-    text-align: left;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.header-content h2 {
-    font-size: 2.6em;
-    margin-bottom: 24px;
-    color: var(--accent-color);
-    font-weight: 700;
-    line-height: 1.3;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-}
-
-.header-content p {
-    font-size: 1.3em;
-    padding-right: 20px;
-    line-height: 1.8;
-    margin-bottom: 24px;
-    color: var(--light-color);
-    animation: slideIn 1.2s ease-in-out;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-.header-image {
-    flex: 1;
-    z-index: 1;
-    margin-left: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: zoomIn 1.2s ease;
-}
-
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.header-image img {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-    border: 3px solid var(--accent-color);
-    transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-}
-
-.header-image img:hover {
-    transform: scale(1.1);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.8);
-}
-
-.header-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 20px;
-}
-
-.header-buttons .btn {
-    padding: 14px 28px;
-    background: linear-gradient(to bottom right, var(--cont-color), #050606, var(--cont-color));
-    font-weight: 600;
-    color: var(--light-color);
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
-    position: relative;
-}
-
-.header-buttons .btn:hover {
-    transform: translateY(-5px) scale(1.1);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
-    background: linear-gradient(to bottom left, var(--cont-color), #121212, var(--cont-color));
-}
-
-.header-buttons .btn.secondary {
-    background: linear-gradient(to bottom left, var(--cont-color), #1c1c1c, var(--cont-color));
-    color: var(--light-color);
-}
-
-.header-buttons .btn.secondary:hover {
-    background: linear-gradient(to top right, var(--cont-color), #252525, var(--cont-color));
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links  {
-        display: none;
-    }
-    .header {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 50px 20px;
-        background: linear-gradient(to bottom right, var(--highlight-color), var(--dark-background-color));
-        color: var(--light-color);
-        min-height: 95vh;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-    }
-
-    .header-image {
-        order: -1; /* Place the image at the top */
-        margin-bottom: 20px;
-    }
-
-    .header-image img {
-        width: 100%;
-        max-width: 250px;
-        height: auto;
-        border-radius: 50%;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
-        border: 3px solid var(--accent-color);
-        transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-    }
-
-    .header-image img:hover {
-        transform: scale(1.1);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
-        border-color: rgba(255, 255, 255, 0.8);
-    }
-
-    .header-content {
-        max-width: 90%;
-    }
-
-    .header-content h1 {
-        font-size: 1.4rem;
-    }
-
-    .header-content p {
-        font-size: 0.8rem;
-        margin-bottom: 15px;
-    }
-
-    .header-buttons .btn {
-        padding: 8px 16px;
-        font-size: 11px;
-    }
-}
-
-
-/* Services Section */
-#services {
-    padding: 100px 20px; /* Reduced padding for better responsiveness */
-    background: var(--gray-2);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-top: 5px solid var(--primary-color);
-    border-bottom: 5px solid var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-#services h2 {
-    color: var(--gray-1);
-    font-size: 2.2rem; /* Responsive font size */
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    animation: slideIn 1s ease-out;
-    margin-bottom: 30px;
-    position: relative;
-}
-
-#services h2::after {
-    content: '';
-    width: 60px; /* Adjusted line width for smaller screens */
-    height: 4px;
-    background: var(--accent-color);
-    display: block;
-    margin: 10px auto;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Ensures responsiveness */
-    gap: 20px; /* Consistent spacing between items */
-    padding: 0 10px; /* Adjusted for better spacing on smaller screens */
-}
-
-.service-item {
-    background: var(--items);
-    color: var(--cont-color);
-    padding: 20px; /* Reduced padding for smaller screens */
-    border-radius: 15px; /* Subtle border radius */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.service-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced hover effect */
-}
-
-.service-item h3 {
-    font-size: 1.5rem; /* Responsive font size */
-    margin-bottom: 15px;
-    color: var(--accent-color);
-    text-align: center;
-}
-
-.service-item p {
-    font-size: 1rem; /* Responsive text size */
-    line-height: 1.6; /* Improved readability */
-    text-align: justify;
-    color: var(--gray-1);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    #services {
-        padding: 80px 15px; /* Adjusted padding for smaller devices */
-        font-size: xx-small;
-    }
-
-    #services h2 {
-        font-size: 1.5rem; /* Smaller heading for compact view */
-    }
-
-    .services-grid {
-        gap: 19px; /* Reduced gap for smaller screens */
-    }
-
-    .service-item {
-        padding: 12px; /* Reduced padding for compact view */
-    }
-
-    .service-item h3 {
-        font-size: 1.2rem; /* Smaller heading size for compact view */
-    }
-
-    .service-item p {
-        font-size: 0.8rem; /* Smaller text size for readability */
-    }
-}
-
-
-/* Experience Section */
-#experience {
-    padding: 80px 20px;
-    background: linear-gradient(to right, var(--gray-2), var(--primary-color));
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-top: 3px solid var(--primary-color);
-    border-bottom: 1px solid var(--accent-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    color: #fff;
-}
-
-/* Experience Header */
-#experience h2 {
-    font-size: 2.5em;  /* تقليل الحجم قليلاً للعنوان */
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 700;
-    animation: slideIn 1s ease-out;
-    margin-bottom: 40px;
-    position: relative;
-    color: var(--gray-1);
-}
-
-#experience h2::after {
-    content: '';
-    width: 100px;
-    height: 4px;
-    background: var(--accent-color);
-    display: block;
-    margin: 10px auto;
-}
-
-/* Experience Grid */
-.experience-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* تعديل لتوفير أكثر من عمود في الشاشات الصغيرة */
-    gap: 20px;
-    justify-items: center;
-    align-items: start;
-    padding: 0 10px;
-}
-
-/* Individual Experience Item */
-.experience-item {
-    background: var(--items);
-    padding: 20px;
-    width: 100%;  /* استخدام العرض الكامل للعناصر */
-    max-width: 600px;  /* تحديد الحد الأقصى لحجم العنصر */
-    border-radius: 20px;
-    box-shadow: 0 8px 10px rgba(233, 230, 16, 0.156);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    overflow: hidden;
-    position: relative;
-    color: #f7f6f6;
-    text-align: center;
-}
-
-.experience-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Image Styling */
-.experience-item img {
-    width: 100%;  /* جعل الصورة تأخذ العرض الكامل */
-    height: auto;  /* الحفاظ على نسبة الأبعاد */
-    max-width: 250px;  /* تحديد الحد الأقصى للعرض */
-    border-radius: 10px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.experience-item img:hover {
-    transform: scale(1.1);
-    filter: brightness(80%);
-}
-
-/* Heading and Description */
-.experience-item h3 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-    color: var(--accent-color);
-    font-weight: 600;
-    transition: color 0.3s ease-in-out;
-}
-
-.experience-item:hover h3 {
-    color: var(--primary-color);
-}
-
-.experience-item p {
-    font-size: 1.1em;  /* تعديل حجم الخط ليكون أكثر وضوحًا */
-    margin-bottom: 12px;
-    line-height: 1.6;
-    color: #ddd;
-}
-
-/* Experience List */
-.experience-item ul {
-    font-size: 1.1em;
-    list-style-type: disc;
-    padding-left: 20px;
-    text-align: left;
-    color: var(--cont-color);
-}
-
-.experience-item ul li {
-    margin-bottom: 10px;
-}
-
-/* Adding animations for content */
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    #experience {
-        padding: 60px 15px; /* Reduced padding for smaller screens */
-        font-size: xx-small;
-    }
-    .experience-item img {
-        width: 200px;
-    height: auto;
-    border-radius: 10%;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-   }
-
-    .experience-item p {
-        font-size: 0.9em;  /* تعديل حجم الخط ليكون أكثر وضوحًا */
-
-    }
-    .experience-item {
-        padding: 20px;
-    }
-
-    .experience-grid {
-        gap: 15px;
-    }
-}
-
-
-/* Projects Section */
-#projects {
-    padding: 80px 20px;
-    background: var(--gray-2);
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    border-top: 3px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    color: #fff;
-}
-
-/* Projects Header */
-#projects h2 {
-    font-size: 3em;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 700;
-    animation: slideIn 1s ease-out;
-    margin-bottom: 40px;
-    position: relative;
-    color: var(--gray-1);
-}
-
-#projects h2::after {
-    content: '';
-    width: 80px;
-    height: 4px;
-    background: var(--accent-color);
-    display: block;
-    margin: 10px auto;
-}
-
-/* Project Grid */
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-content: center; /* Center the items if fewer columns */
-}
-
-/* Individual Project Item */
-.project-item {
-    background: var(--items);
-    padding: 20px;
-    width: 650px; /* Fixed size for items */
-    border-radius: 20px;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
-    margin: auto; /* Center item if columns are missing */
-    transition: transform 0.3s ease-in-out;
-    overflow: hidden;
-    position: relative;
-    color: #f7f6f6;
-}
-
-.project-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-/* Image with overlay effect */
-.project-item img {
-    width: 350px;
-    height: 200px;
-    border-radius: 10%;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-}
-
-.project-item img:hover {
-    transform: scale(1.1);
-    filter: brightness(70%);
-}
-
-/* Overlay Text on Image Hover */
-.project-item img:hover + .project-text {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* Hidden overlay text */
-.project-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    font-size: 1.1em;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    text-align: center;
-    padding: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-}
-
-/* Heading and Description */
-.project-item h3 {
-    font-size: 1.4em;
-    margin-bottom: 20px;
-    color: var(--accent-color);
-    font-weight: 600;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-    transition: color 0.3s ease-in-out;
-}
-
-.project-item:hover h3 {
-    color: var(--primary-color);
-}
-
-.project-item p {
-    font-size: 1em;
-    margin-bottom: 12px;
-    line-height: 1.6;
-    color: #555;
-}
-
-.project-item ul {
-    font-size: 1em;
-    list-style-type: disc;
-    padding-left: 20px;
-    color: var(--cont-color);
-}
-
-.project-item ul li {
-    margin-bottom: 10px;
-}
-
-/* Adding animations for content */
-@keyframes slideIn {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-
-/* Responsive Media Queries */
-@media (max-width: 768px) {
-    #projects h2 {
-        font-size: 2em;
-    }
-
-    .project-grid {
-        gap: 10px; /* Smaller gaps for tablet screens */
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Adjusted for smaller screens */
-    }
-
-    /* Image with overlay effect */
-   .project-item img {
-    width: 200px;
-    height: auto;
-    border-radius: 10%;
-    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
-   }
-    .project-item {
-        padding: 15px; /* Smaller padding */
-        font-size: x-small;
-        border-radius: 10px;
-        width: 100%; /* Ensure the item takes full width */
-        box-sizing: border-box; /* Ensures padding doesn't affect width */
-    }
-
-    .project-item h3 {
-        font-size: 1em; /* Adjusted heading size */
-    }
-
-    .project-item p {
-        font-size: 0.9em;
-    }
-}
-
-
- /* About Section Styling */
-#about {
-    background: var(--gray-2);
-    padding: 150px 20px; /* Adjusted padding for smaller screens */
-    border-top: 3px solid var(--primary-color);
-    border-bottom: 1px solid var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    min-height: 50vh; /* Ensures a consistent height */
-    text-align: center;
-}
-
-#about h2 {
-    font-size: 2.5em; /* Adjusted font size for better scaling */
-    color: var(--gray-1);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 30px;
-    animation: slideIn 1s ease-out;
-}
-
-#about p {
-    font-size: 1.2em; /* Slightly reduced for smaller screens */
-    color: var(--cont-color);
-    line-height: 1.6;
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: justify; /* Improves readability on smaller devices */
-}
-
-#about p:first-of-type {
-    font-weight: bold;
-}
-
-#about p:last-of-type {
-    font-style: italic;
-}
-
-/* Animation for sliding in the heading */
-@keyframes slideIn {
-    from {
-        transform: translateY(-30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    #about {
-        padding: 100px 15px; /* Reduce padding for tablets */
-    }
-
-    #about h2 {
-        font-size: 2em; /* Smaller heading font size for tablets */
-    }
-
-    #about p {
-        font-size: 0.8em; /* Adjust font size for readability */
-        max-width: 90%; /* Allow text to occupy more space */
-    }
-}
-
-
-/* Contact Section Styling */
-#contact {
-    background: var(--gray-2);
-    padding: 80px 20px;
-    border-top: 3px solid var(--primary-color);
-    border-bottom: 3px solid var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-#contact h2 {
-    font-size: 2.8em;
-    color: var(--gray-1);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-weight: 700;
-    margin-bottom: 30px;
-    animation: slideIn 1s ease-out;
-}
-
-#contact p {
-    font-size: 1.2em;
-    color: var(--cont-color);
-    line-height: 1.6;
-    margin-bottom: 20px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.input-field {
-    margin-bottom: 20px;
-}
-
-.input-field input,
-.input-field textarea {
-    width: 30%;
-    padding: 15px;
-    border: 2px solid #ddd;
-    border-radius: 5px;
-    font-size: 1.1em;
-    outline: none;
-    transition: border-color 0.3s ease;
-}
-
-.input-field input:focus,
-.input-field textarea:focus {
-    border-color: var(--primary-color);
-}
-
-textarea {
-    height: 100px;
-    resize: vertical;
-}
-
-.submit-btn {
-    padding: 12px 20px;
-    background-color: var(--primary-color);
-    color: #fff;
-    font-size: 1.2em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-btn:hover {
-    background-color: var(--accent-color);
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 768px) {
-    #contact h2 {
-    font-size: 2em;  /* تقليل الحجم أكثر للموبايل */
-        margin-bottom: 30px;
-    }
-
-#contact p {
-    font-size: 1em;
-    line-height: 1.4;
-}
-
-.input-field input,
-.input-field textarea {
-    width: 85%;
-    font-size: 0.7em;
-    outline: none;
-}
-
-textarea {
-    height: 80px;
-    resize: vertical;
-}
-
-.submit-btn {
-    font-size: 0.9em;
-}
-}
-
-/* Footer Styling */
-footer {
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 10px 8;
-    text-align: center;
-    font-size: 1.1em;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    position: relative;
-    z-index: 10;
-    border-top: 5px solid var(--primary-color);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(to right, #000000, #000000, #faf9f8);
-}
-
-footer .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
-
-footer p {
-    margin-bottom: 20px;
-    line-height: 1.4;
-}
-
-footer .contact-info p {
-    margin: 3px 0;
-    font-size: 1em;
-}
-
-footer a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-footer a:hover {
-    color: #75c2cf;
-    transform: translateY(-3px);
-}
-
-footer .social-media {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-footer .social-icon {
-    font-size: 1.8em;
-    color: #778599;
-    transition: transform 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    padding: 1px;
-    border-radius: 20%;
-    cursor: pointer;
-}
-
-footer .social-icon:hover {
-    color: var(--primary-color);
-    transform: scale(1.1);
-    background-color: #dfebf0;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Responsive Footer for smaller screens */
-@media (max-width: 768px) {
-    footer {
-        padding: 15px 10px; /* Slightly more padding on small screens */
-        font-size: 0.8em;
-    }
-
-    footer p {
-        font-size: 1.3em; /* Adjust font size */
-    }
-
-    footer .social-media {
-        gap: 15px; /* Reduce gap between icons */
-    }
-
-    footer .social-icon {
-        font-size: 1.5em; /* Slightly smaller social icons */
-        padding: 5px; /* Adjust padding */
-    }
-}
-
-
-
-
-    </style>
-    
-    </head>
-    <body>
-        <!-- Navbar Section -->
-        <div class="navbar">
-            <div class="logo">
-                <span>My</span>Portfolio
-            </div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nour Hesham - Data Scientist</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Nour Hesham</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <div class="burger">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+    </nav>
 
-<!-- Header Section -->
-<section id="home" class="header">
-    <div class="header-content">
-        <h1>Hi, I'm Nour Hesham</h1>
-        <h2>Data Scientist</h2>
-        <p>Transforming complex data into actionable insights using machine learning, data visualization, and statistical analysis. Explore my work and connect!</p>
-        <div class="header-buttons">
-            <a href="files\Nour_Hesham_DS_CV 2025.pdf" class="btn">View Resume</a>
-            <a href="#projects" class="btn secondary">Explore Projects</a>
-        </div>
-    </div>
-    <div class="header-image">
-        <img src="imgs\WhatsApp Image 2025-05-11 at 19.49.19_c1f6ddad.jpg" alt="Profile Image">
-    </div>
-</section>
-
-
-
-<!-- Services Section -->
-<section id="services">
-    <h2>What I Do</h2>
-    <div class="services-grid">
-        <!-- Data Visualization -->
-        <div class="service-item">
-            <i class="fas fa-chart-bar fa-3x"></i>
-            <h3>Data Visualization</h3>
-            <p>Creating dynamic and insightful visualizations using tools like Power BI, and Matplotlib.</p>
-        </div>
-        <!-- Machine Learning -->
-        <div class="service-item">
-            <i class="fas fa-robot fa-3x"></i>
-            <h3>Machine Learning</h3>
-            <p>Building AI models to solve real-world problems efficiently.</p>
-        </div>
-        <!-- Data Analysis -->
-        <div class="service-item">
-            <i class="fas fa-database fa-3x"></i>
-            <h3>Data Analysis</h3>
-            <p>Extracting insights from data using Python, and various tools.</p>
-        </div>
-    </div>
-</section>
-
-<!-- Experience Section -->
-<section id="experience">
-    <h2>Experience</h2>
-    <div class="experience-grid">
-        <div class="experience-item">
-            <img src="imgs\Picsart_24-12-23_21-28-30-531.jpg"
-            alt="Power Bi Business Analysis Dashboard">
-            <h3>Data Analyst</h3>
-            <p>Freelance | Nov 2024 - Present</p>
-            <ul>
-                <li>Designed and implemented automated dashboards in Power BI, reducing manual reporting efforts by 40%.</li>
-                <li>Conducted in-depth analysis of sales trends, helping businesses improve profitability by 15%.</li>
-                <li>Collaborated with stakeholders to identify KPIs and improve decision-making processes.</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-
-        <div id="projects">
-            <h2>My Projects</h2>
-            <div class="project-grid">
-                <div class="project-item">
-                    <img src="imgs\IMG_20241226_172250.png"
-                        alt="Chest X-ray Classification">
-                    <h3>MEDICAL SCAN ANALYSIS (CNN FOR CHEST X-RAY
-                        CLASSIFICATION)</h3>
-                    <p>Assiut University | Sep 2024</p>
-                    <ul>
-                        <li>Developed a CNN model to classify chest X-rays into
-                            Pneumonia, COVID-19, and Healthy categories,
-                            achieving 95% accuracy.</li>
-                        <li>Automated diagnostics, enhancing efficiency by 30%
-                            and minimizing errors.</li>
-                        <li>Optimized model performance through fine-tuning
-                            hyperparameters.</li>
-                    </ul>
-                </div>
-                <div class="project-item">
-                    <img src="imgs\heart model.png"
-                        alt="Heart Disease Prediction System">
-                    <h3>HEART DISEASE PREDICTION SYSTEM</h3>
-                    <p>Assiut University | Mar 2024</p>
-                    <ul>
-                        <li>Developed a Flask web app to predict heart disease
-                            risk using health metrics like age, cholesterol, and
-                            blood pressure.</li>
-                        <li>Enhanced accuracy to 87% by integrating Logistic
-                            Regression, Random Forest, and XGBoost in an
-                            ensemble model.</li>
-                        <li>Created a user-friendly interface for real-time
-                            predictions and health assessments.</li>
-                    </ul>
-                </div>
+    <header class="header" id="home">
+        <div class="header-content">
+            <h2>Hi, I'm Nour Hesham</h2>
+            <h3>Data Scientist</h3>
+            <p>Transforming complex data into actionable insights through machine learning, data visualization, and statistical analysis. Dive into my projects and let's connect!</p>
+            <div class="header-buttons">
+                <a href="files/Nour_Hesham_Data_Scientist.pdf" class="btn" download>Download Resume</a>
+                <a href="#projects" class="btn secondary">Explore Projects</a>
             </div>
         </div>
-
-<!-- About Section -->
-<section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I'm a Junior Data Scientist with a strong foundation in data analysis, machine learning, and web development. I am passionate about transforming raw data into meaningful insights and building machine learning models that solve real-world problems.</p>
-    <p>I leverage tools like Python, TensorFlow, and Power BI to analyze complex datasets and deliver actionable insights. My goal is to contribute to impactful projects and enhance my skills in data science and advanced machine learning techniques.</p>
-    
-</section>
-
-
-<!-- Contact Section -->
-<section id="contact">
-    <h2>Contact Me</h2>
-    <p>If you have any questions or want to collaborate, feel free to reach out!</p>
-    <form>
-        <div class="input-field">
-            <input type="text" placeholder="Your Name" required>
+        <div class="header-image">
+            <img src="imgs\WhatsApp Image 2025-05-11 at 19.49.19_c1f6ddad.jpg" alt="Nour Hesham">
         </div>
-        <div class="input-field">
-            <input type="email" placeholder="Your Email" required>
+    </header>
+
+    <section id="services" class="section">
+        <h2>What I Do</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <i class="fas fa-chart-line fa-3x service-icon"></i>
+                <h3>Data Visualization</h3>
+                <p>Crafting dynamic and insightful visualizations using Power BI, Matplotlib, and Seaborn to bring data to life.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-brain fa-3x service-icon"></i>
+                <h3>Machine Learning</h3>
+                <p>Developing AI models with Scikit-learn, TensorFlow, and PyTorch to tackle real-world challenges.</p>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-database fa-3x service-icon"></i>
+                <h3>Data Analysis</h3>
+                <p>Extracting actionable insights using Python, SQL, Pandas, and advanced Excel techniques.</p>
+            </div>
         </div>
-        <div class="input-field">
-            <textarea placeholder="Your Message" required></textarea>
+    </section>
+
+    <section id="experience" class="section">
+        <h2>Experience</h2>
+        <div class="experience-grid">
+            <div class="experience-item" data-slide="left">
+                <h3>Data Analyst Intern</h3>
+                <p>Truvian Intelligence | Remote | Jul 2025 - Aug 2025</p>
+                <ul>
+                    <li>Completed task-based training focused on business data analysis using Excel and SQL.</li>
+                    <li>Built automated Excel dashboards to track KPIs and generate reports from raw data.</li>
+                    <li>Wrote SQL queries to clean, filter, and aggregate operational datasets for insights.</li>
+                </ul>
+            </div>
+            <div class="experience-item" data-slide="right">
+                <h3>Freelance Data Analyst</h3>
+                <p>Power BI Business Analysis Dashboard | Remote | Nov 2024 - Dec 2024</p>
+                <ul>
+                    <li>Designed interactive dashboards using DAX to visualize KPIs, reducing report turnaround time by 40%.</li>
+                    <li>Delivered actionable HR and Sales insights, improving decision-making speed by 25%.</li>
+                </ul>
+            </div>
+            <div class="experience-item" data-slide="left">
+                <h3>Data Science Intern</h3>
+                <p>Digital Egypt Pioneers Initiative (DEPI) | Remote | Oct 2024 - May 2025</p>
+                <ul>
+                    <li>Built ML pipelines, cutting preprocessing time by 30%.</li>
+                    <li>Implemented 3 predictive models using Flask API for real-time inference.</li>
+                    <li>Led a capstone project achieving 94% model accuracy and presented findings to stakeholders.</li>
+                </ul>
+            </div>
         </div>
-        <button class="submit-btn" type="submit">Send Message</button>
-    </form>
-</section>
+    </section>
 
-<!-- Footer Section -->
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
-        <div class="contact-info">
-            <p>Phone: <a href="tel:+201228013730">+20 122 801 3730</a></p>
-            <p>Email: <a href="mailto:nour.hesham.ds@gmail.com">nour.hesham.ds@gmail.com</a></p>
+    <section id="projects" class="section">
+        <h2>My Projects</h2>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all" aria-selected="true">All</button>
+            <button class="filter-btn" data-filter="machine-learning" aria-selected="false">Machine Learning</button>
+            <button class="filter-btn" data-filter="data-visualization" aria-selected="false">Data Visualization</button>
         </div>
-        <div class="social-media">
-            <a href="https://www.linkedin.com/in/nour-eldin-hesham-557770238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="social-icon">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://github.com/n-hesham" target="_blank" class="social-icon">
-                <i class="fab fa-github"></i>
-            </a>
+        <div class="project-grid">
+            <div class="project-item machine-learning">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1583911860205-8f7a5e4c61b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="AI-Powered X-Ray Classification">
+                    <div class="project-text">AI-Powered X-Ray Classification Platform</div>
+                </div>
+                <h3>AI-Powered X-Ray Classification Platform</h3>
+                <p>Assiut University | May 2025</p>
+                <ul>
+                    <li>Fine-tuned DenseNet on 14K+ chest X-ray images for 7-class classification.</li>
+                    <li>Integrated anomaly detection using an autoencoder and connected to an LLM for AI-assisted diagnosis.</li>
+                    <li>Launched a multi-platform solution using Flask, Flutter, and React.</li>
+                </ul>
+                <a href="https://github.com/nourhesham/xray-classification" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+            <div class="project-item machine-learning">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173fdabea2a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Heart Disease Prediction">
+                    <div class="project-text">Heart Disease Prediction System</div>
+                </div>
+                <h3>Heart Disease Prediction System</h3>
+                <p>Assiut University | Dec 2024</p>
+                <ul>
+                    <li>Engineered an ensemble model (Logistic Regression, Random Forest, XGBoost) with 97.6% accuracy.</li>
+                    <li>Developed a Flask-based web app for real-time health metric predictions.</li>
+                </ul>
+                <a href="https://github.com/nourhesham/heart-disease-prediction" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+            <div class="project-item data-visualization">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f3c0f23a78?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Retail Sales Analytics">
+                    <div class="project-text">Retail Sales Analytics Dashboard</div>
+                </div>
+                <h3>Retail Sales Analytics Dashboard</h3>
+                <p>Truvian Intelligence | Jul 2025</p>
+                <ul>
+                    <li>Built a Power BI dashboard using star schema to analyze sales, products, and customer segments.</li>
+                    <li>Created DAX measures and interactive visuals for actionable business insights.</li>
+                </ul>
+                <a href="https://github.com/nourhesham/retail-sales-dashboard" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+            <div class="project-item data-visualization">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-b1f3c0f23a78?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Board Recommendations">
+                    <div class="project-text">Board Recommendations Dashboard</div>
+                </div>
+                <h3>Board Recommendations Dashboard</h3>
+                <p>Truvian Intelligence | Jul 2025</p>
+                <ul>
+                    <li>Developed an Excel dashboard using XLOOKUP, pivot tables, and conditional formatting.</li>
+                    <li>Supported data-driven board recommendations.</li>
+                </ul>
+                <a href="https://github.com/nourhesham/board-recommendations" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
+            <div class="project-item machine-learning">
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1516321310764-4d765dd6e2a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Customer Churn Prediction">
+                    <div class="project-text">Customer Churn Prediction</div>
+                </div>
+                <h3>Customer Churn Prediction</h3>
+                <p>Digital Egypt Pioneers Initiative | May 2025</p>
+                <ul>
+                    <li>Built a LightGBM model on 500K+ customer records, achieving 94% AUC.</li>
+                    <li>Integrated into a FastAPI service with MySQL backend and MLflow tracking.</li>
+                </ul>
+                <a href="https://github.com/nourhesham/customer-churn-prediction" class="btn github-btn" target="_blank"><i class="fab fa-github"></i> View on GitHub</a>
+            </div>
         </div>
-    </div>
-</footer>
+    </section>
 
-<!-- Font Awesome (if not already included) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p class="typewriter">Hello! I'm Nour Hesham, a Junior Data Scientist with a BSc in Computer Science from Assiut University. I specialize in data analysis, machine learning, and web development.</p>
+        <p>I leverage tools like Python, TensorFlow, PyTorch, Scikit-learn, SQL, and Power BI to transform raw data into actionable insights. My experience includes building ML models, creating interactive dashboards, and leading impactful projects. I’m passionate about solving real-world problems and continuously enhancing my skills in data science and AI.</p>
+        <p>Leadership Roles: Team Lead for DEPI Capstone (Churn Prediction) and Graduation Project (AI-Based X-Ray Diagnosis).</p>
+        <p>Certifications: Data Analytics Bootcamp (EYouth, 2025), Database Fundamentals (ITI, 2023), Bioinformatics (Syndicate of Scientific Professions, 2023).</p>
+        <p>Languages: Arabic (Native), English (Intermediate).</p>
+    </section>
 
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Nour Hesham. All rights reserved.</p>
+            <div class="contact-info">
+                <p>Phone: <a href="tel:+201228013730">+20 122 801 3730</a></p>
+                <p>Email: <a href="mailto:nour.hesham.ds@gmail.com">nour.hesham.ds@gmail.com</a></p>
+            </div>
+            <div class="social-media">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
 
-<script>
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-
-    burger.addEventListener('click', () => {
-        nav.classList.toggle('active');
-    });
-</script>
-
-    </body>
-
+    <script src="script.js"></script>
+</body>
 </html>
